@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elements>
+    <source>
+        <title>Classic Jeans - Apparel</title>
+    </source>
+
+    <codeception>
+        <amonpage><![CDATA[/apparel/classic-jeans.html]]></amonpage>
+        <wantto>check pdp page</wantto>
+        <see>
+            <row>Add to Cart</row>
+            <row>Classic Jeans,h2</row>
+        </see>
+        <seeintitle>Classic Jeans - Apparel</seeintitle>
+    </codeception>
+
+    <pageElements>
+        <addToCart>Add to Cart</addToCart>
+    </pageElements>
+
+    <debug>true</debug>
+</elements>

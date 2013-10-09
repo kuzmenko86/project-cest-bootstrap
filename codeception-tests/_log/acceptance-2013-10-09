@@ -1,0 +1,6 @@
+[2013-10-09 15:07:31] CheckoutCest.tryToSpendCheckout.INFO: am on page "/apparel/classic-jeans.html" [] []
+[2013-10-09 15:07:33] CheckoutCest.tryToSpendCheckout.INFO: click "Add to Cart" [] []
+[2013-10-09 15:07:35] CheckoutCest.tryToSpendCheckout.INFO: wait 5000 [] []
+[2013-10-09 15:07:40] CheckoutCest.tryToSpendCheckout.INFO: click "//button[@class='button btn-proceed-checkout btn-checkout']" [] []
+[2013-10-09 15:07:43] CheckoutCest.tryToSpendCheckout.INFO: wait 5000 [] []
+[2013-10-09 15:07:48] CheckoutCest.tryToSpendCheckout.INFO: PASSED [] []

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elements>
+    <MyData>
+        <firstname>Volodymyr</firstname>
+        <lastname>Kuzmenko</lastname>
+        <email_address>v.kuzmenko1@ism-ukraine.com</email_address>
+        <password>password</password>
+        <confirmation>password</confirmation>
+    </MyData>
+</elements>

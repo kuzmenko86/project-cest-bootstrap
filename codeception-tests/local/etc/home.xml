@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elements>
+    <source>
+        <title>ISM STORE EN Home page</title>
+    </source>
+
+    <codeception>
+        <amonpage><![CDATA[/]]></amonpage>
+        <wantto>check home page</wantto>
+        <see>
+            <row>My account</row>
+        </see>
+        <intitle>Enterprise Home Page</intitle>
+    </codeception>
+    <debug>true</debug>
+</elements>

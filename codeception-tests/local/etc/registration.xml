@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elements>
+    <source>
+        <title>Create New Customer Account</title>
+    </source>
+
+    <codeception>
+        <amonpage><![CDATA[/customer/account/create/]]></amonpage>
+        <wantto>check registration page</wantto>
+        <see>
+            <row>Create an Account</row>
+            <row>Personal Information</row>
+        </see>
+        <seeintitle>Create New Customer Account</seeintitle>
+    </codeception>
+
+    <registrationForm>
+        <firstname>//input[@id='firstname']</firstname>
+        <lastname>//input[@id='lastname']</lastname>
+        <email_address>//input[@id='email_address']</email_address>
+        <password>//input[@id='password']</password>
+        <confirmation>//input[@id='confirmation']</confirmation>
+        <submit_button>//button[@type='submit']</submit_button>
+    </registrationForm>
+
+    <debug>true</debug>
+</elements>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elements>
+    <source>
+        <title>Login page</title>
+    </source>
+
+    <codeception>
+        <amonpage><![CDATA[/customer/account/login/]]></amonpage>
+        <wantto>check login page</wantto>
+        <see>
+            <row>My account</row>
+            <row>New Customers,h2</row>
+        </see>
+        <seeintitle>Customer Login</seeintitle>
+    </codeception>
+
+    <pageElements>
+        <email>//input[@id='email']</email>
+        <password>//input[@id='pass']</password>
+        <submit_button>//button[@id='send2']</submit_button>
+        <invalid_login>Invalid login or password</invalid_login>
+    </pageElements>
+
+    <debug>true</debug>
+</elements>
