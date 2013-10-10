@@ -1,4 +1,6 @@
 project-cest-bootstrap
 ======================
 
-Bootstrap for new project instead of standard codeception bootstrap. Will be using for magento projects. Used Page object pattern.
+
+This bootstrap will be using for create root folder for new project test. 
+Tests designed for using on magento projects. Used Page object pattern.
