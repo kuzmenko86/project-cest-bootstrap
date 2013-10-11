@@ -55,55 +55,55 @@ namespace ISM;
  * @method \ISM\BasePage dontSee($text = null, $selector = null)
  * @method \ISM\BasePage canSee($text = null, $selector = null)
  * @method \ISM\BasePage see($text = null, $selector = null)
- * @method \ISM\BasePage canSeeLink($text, $url = null) 
- * @method \ISM\BasePage seeLink($text, $url = null) 
- * @method \ISM\BasePage cantSeeLink($text, $url = null) 
- * @method \ISM\BasePage dontSeeLink($text, $url = null) 
- * @method \ISM\BasePage cantSeeElement($selector) 
- * @method \ISM\BasePage dontSeeElement($selector) 
- * @method \ISM\BasePage reloadPage() 
+ * @method \ISM\BasePage canSeeLink($text, $url = null)
+ * @method \ISM\BasePage seeLink($text, $url = null)
+ * @method \ISM\BasePage cantSeeLink($text, $url = null)
+ * @method \ISM\BasePage dontSeeLink($text, $url = null)
+ * @method \ISM\BasePage cantSeeElement($selector)
+ * @method \ISM\BasePage dontSeeElement($selector)
+ * @method \ISM\BasePage reloadPage()
  * @method \ISM\BasePage moveBack()
- * @method \ISM\BasePage moveForward() 
- * @method \ISM\BasePage fillField($field, $value) 
- * @method \ISM\BasePage selectOption($select, $option) 
+ * @method \ISM\BasePage moveForward()
+ * @method \ISM\BasePage fillField($field, $value)
+ * @method \ISM\BasePage selectOption($select, $option)
  * @method \ISM\BasePage canSeeInCurrentUrl($uri)
  * @method \ISM\BasePage seeInCurrentUrl($uri)
- * @method \ISM\BasePage cantSeeInCurrentUrl($uri) 
- * @method \ISM\BasePage dontSeeInCurrentUrl($uri) 
- * @method \ISM\BasePage canSeeCurrentUrlEquals($uri) 
- * @method \ISM\BasePage seeCurrentUrlEquals($uri) 
- * @method \ISM\BasePage cantSeeCurrentUrlEquals($uri) 
- * @method \ISM\BasePage dontSeeCurrentUrlEquals($uri) 
- * @method \ISM\BasePage canSeeCurrentUrlMatches($uri) 
- * @method \ISM\BasePage seeCurrentUrlMatches($uri) 
- * @method \ISM\BasePage cantSeeCurrentUrlMatches($uri) 
- * @method \ISM\BasePage dontSeeCurrentUrlMatches($uri) 
- * @method \ISM\BasePage canSeeCookie($cookie) 
- * @method \ISM\BasePage seeCookie($cookie) 
- * @method \ISM\BasePage cantSeeCookie($cookie) 
- * @method \ISM\BasePage dontSeeCookie($cookie) 
- * @method \ISM\BasePage setCookie($cookie, $value) 
+ * @method \ISM\BasePage cantSeeInCurrentUrl($uri)
+ * @method \ISM\BasePage dontSeeInCurrentUrl($uri)
+ * @method \ISM\BasePage canSeeCurrentUrlEquals($uri)
+ * @method \ISM\BasePage seeCurrentUrlEquals($uri)
+ * @method \ISM\BasePage cantSeeCurrentUrlEquals($uri)
+ * @method \ISM\BasePage dontSeeCurrentUrlEquals($uri)
+ * @method \ISM\BasePage canSeeCurrentUrlMatches($uri)
+ * @method \ISM\BasePage seeCurrentUrlMatches($uri)
+ * @method \ISM\BasePage cantSeeCurrentUrlMatches($uri)
+ * @method \ISM\BasePage dontSeeCurrentUrlMatches($uri)
+ * @method \ISM\BasePage canSeeCookie($cookie)
+ * @method \ISM\BasePage seeCookie($cookie)
+ * @method \ISM\BasePage cantSeeCookie($cookie)
+ * @method \ISM\BasePage dontSeeCookie($cookie)
+ * @method \ISM\BasePage setCookie($cookie, $value)
  * @method \ISM\BasePage resetCookie($cookie)
- * @method \ISM\BasePage grabCookie($cookie) 
- * @method \ISM\BasePage grabFromCurrentUrl($uri = null) 
+ * @method \ISM\BasePage grabCookie($cookie)
+ * @method \ISM\BasePage grabFromCurrentUrl($uri = null)
  * @method \ISM\BasePage attachFile($field, $filename)
- * @method \ISM\BasePage canSeeOptionIsSelected($select, $text) 
+ * @method \ISM\BasePage canSeeOptionIsSelected($select, $text)
  * @method \ISM\BasePage seeOptionIsSelected($select, $text)
- * @method \ISM\BasePage cantSeeOptionIsSelected($select, $text) 
+ * @method \ISM\BasePage cantSeeOptionIsSelected($select, $text)
  * @method \ISM\BasePage dontSeeOptionIsSelected($select, $text)
  * @method \ISM\BasePage canSeeCheckboxIsChecked($checkbox)
  * @method \ISM\BasePage seeCheckboxIsChecked($checkbox)
- * @method \ISM\BasePage cantSeeCheckboxIsChecked($checkbox) 
- * @method \ISM\BasePage dontSeeCheckboxIsChecked($checkbox) 
+ * @method \ISM\BasePage cantSeeCheckboxIsChecked($checkbox)
+ * @method \ISM\BasePage dontSeeCheckboxIsChecked($checkbox)
  * @method \ISM\BasePage canSeeInField($field, $value)
- * @method \ISM\BasePage seeInField($field, $value) 
+ * @method \ISM\BasePage seeInField($field, $value)
  * @method \ISM\BasePage cantSeeInField($field, $value)
  * @method \ISM\BasePage dontSeeInField($field, $value)
- * @method \ISM\BasePage grabTextFrom($cssOrXPathOrRegex) 
+ * @method \ISM\BasePage grabTextFrom($cssOrXPathOrRegex)
  * @method \ISM\BasePage grabValueFrom($field)
  *
  */
-abstract class AbstractPage
+abstract class AbstractPage implements Intface\GuyIntface
 {
     protected $_guy = false;
     protected $_isDebug = true;
@@ -123,22 +123,29 @@ abstract class AbstractPage
         'baseResource'
     );
 
-    public function getPage($pageName)
-    {
-        return \ISM\Pages::getPage($pageName);
-    }
-
+    /**
+     * Set webguy.
+     *
+     * @param \WebGuy $guy Setup guy.
+     */
     public function setGuy(\WebGuy $guy)
     {
         $this->_guy = $guy;
     }
 
     /**
+     * Retrieve web guy.
+     *
      * @return \WebGuy | bool
      */
     public function getGuy()
     {
         return $this->_guy;
+    }
+
+    public function getPage($pageName)
+    {
+        return \ISM\Pages::getPage($pageName);
     }
 
     public function loadConfig($xmlName)

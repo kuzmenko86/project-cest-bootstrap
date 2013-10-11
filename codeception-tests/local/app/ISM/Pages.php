@@ -1,6 +1,8 @@
 <?php
 namespace ISM;
 
+use ISM\Intface\GuyIntface;
+
 class Pages
 {
     public static $_guy = false;
@@ -28,7 +30,7 @@ class Pages
             default : return false;
         }
 
-        if ($pageClass && ($pageClass instanceof BasePage) && self::$_guy && (self::$_guy instanceof \WebGuy)) {
+        if ($pageClass && ($pageClass instanceof GuyIntface) && self::$_guy && (self::$_guy instanceof \WebGuy)) {
             $pageClass->setGuy(self::$_guy);
         }
 
