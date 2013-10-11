@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elements>
+    <source>
+        <title>Dashboard / Magento Admin</title>
+    </source>
+
+    <codeception>
+        <amonpage><![CDATA[/index.php/admin/]]></amonpage>
+        <wantto>make some action on BO</wantto>
+        <see>
+            <row>My account</row>
+            <row>My Dashboard</row>
+        </see>
+        <intitle>Dashboard / Magento Admin</intitle>
+    </codeception>
+    <sales>
+
+    </sales>
+    <catalog>
+
+    </catalog>
+    <customers>
+        <managecustomers>//ul[@id='nav']/li[5]/ul/li/a/span</managecustomers>
+    </customers>
+
+    <pageElements>
+        <login_to_bo_button>Log in</login_to_bo_button>
+        <login_field>#username</login_field>
+        <password_field>#login</password_field>
+
+    </pageElements>
+
+
+    <debug>true</debug>
+</elements>

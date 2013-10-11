@@ -16,9 +16,6 @@ class RegistrationPage extends BasePage
         $this->_pageResource = $this->loadConfig($this->_xmlName);
     }
 
-    /**
-     * @return $this ISMRegistrationPage
-     */
     public function checkForAllFormElementsPresent()
     {
         $this->seeInField($this->pageResource->registrationForm->firstname,'');
@@ -27,7 +24,6 @@ class RegistrationPage extends BasePage
         $this->seeInField($this->pageResource->registrationForm->password,'');
         $this->seeInField($this->pageResource->registrationForm->confirmation,'');
         return $this;
-
     }
 
 
@@ -42,7 +38,14 @@ class RegistrationPage extends BasePage
         $this->see($this->pageResource->registrationForm->validation_message);
         return $this;
     }
-//->checkInvalidEmail()
+
+    public function checkInvalidEmail()
+    {
+        $this->fillField($this->pageResource->registrationForm->email_address,'fake');
+        $this->click($this->pageResource->registrationForm->submit_button);
+        $this->see($this->pageResource->registrationForm->validation_email_message);
+        return $this;
+    }
 
 
     public function makeRegister()
@@ -69,7 +72,10 @@ class RegistrationPage extends BasePage
         );
         $this->click($this->pageResource->registrationForm->submit_button);
 
-        return $this->getPage('my_account');
+        if (!$this->see($this->pageResource->pageElements->error_for_already_existing_account))
+            return $this->getPage('my_account');
+        return $this;//go to bo and delete an existing account, and run this function again
+
     }
 
 

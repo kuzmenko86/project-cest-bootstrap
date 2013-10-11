@@ -14,8 +14,7 @@ class MyAccountPage extends BasePage
         parent::__construct();
         $this->_pageResource = $this->loadConfig($this->_xmlName);
     }
-    public function isCurrent(){
 
-    }
+
 
 }

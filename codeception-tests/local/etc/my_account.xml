@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <elements>
     <source>
-        <title>ISM STORE EN Home page</title>
+        <title>My Account</title>
     </source>
 
     <codeception>
-        <amonpage><![CDATA[/]]></amonpage>
-        <wantto>check home page</wantto>
+        <amonpage><![CDATA[/customer/account/]]></amonpage>
+        <wantto>check My account page</wantto>
         <see>
             <row>My account</row>
+            <row>My Dashboard</row>
         </see>
-        <intitle>Enterprise Home Page</intitle>
+        <intitle>My Account</intitle>
     </codeception>
 
 

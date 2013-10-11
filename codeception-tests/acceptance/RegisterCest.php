@@ -21,9 +21,9 @@ class RegisterCest {
             ->isCurrent()
             ->checkForAllFormElementsPresent()
             ->checkValidationMessage()
-            //->checkInvalidEmail()
-            ->makeRegister();
-            //->isCurrent();
+            ->checkInvalidEmail()
+            ->makeRegister()
+            ->isCurrent();
 
     }
 

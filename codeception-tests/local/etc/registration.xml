@@ -20,11 +20,13 @@
         <email_address>//input[@id='email_address']</email_address>
         <password>//input[@id='password']</password>
         <confirmation>//input[@id='confirmation']</confirmation>
-        <submit_button>//button[@type='submit']</submit_button>
+        <submit_button>//div[@class='buttons-set form-buttons']/button[@type='submit']</submit_button>
         <validation_message>This is a required field.</validation_message>
+        <validation_email_message>Please enter a valid email address. For example johndoe@domain.com</validation_email_message>
     </registrationForm>
 
     <pageElements>
+        <error_for_already_existing_account>There is already an account with this email address. If you are sure that it is your email address, click here to get your password and access your account.</error_for_already_existing_account>
 
 
     </pageElements>

@@ -27,6 +27,12 @@ class Pages
             case 'shopping_cart':
                 $pageClass = new ShoppingCartPage('shopping_cart');
                 break;
+            case 'my_account':
+                $pageClass = new MyAccountPage('my_account');
+                break;
+            case 'back_office':
+                $pageClass = new BackOfficePage('back_office');
+                break;
             default : return false;
         }
 

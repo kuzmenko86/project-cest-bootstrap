@@ -26,6 +26,9 @@ class BasePage extends AbstractPage
         return $this;
     }
 
+    /**
+     * @return bool|BasePage|HomePage|LoginPage|PdpPage|RegistrationPage|ShoppingCartPage
+     */
     public function goToLoginPage()
     {
         $this->click($this->baseResource->pageElements->link_to_login);
@@ -33,6 +36,9 @@ class BasePage extends AbstractPage
 
     }
 
+    /**
+     * @return RegistrationPage
+     */
     public function goRegistrationPage()
     {
         $this->click($this->baseResource->pageElements->link_to_gegister);
