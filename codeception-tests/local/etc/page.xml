@@ -11,6 +11,6 @@
     </MyData>
     <pageElements>
         <link_to_login>Log In</link_to_login>
-        <link_to_gegister>gerister</link_to_gegister>
+        <link_to_gegister>register</link_to_gegister>
     </pageElements>
 </elements>

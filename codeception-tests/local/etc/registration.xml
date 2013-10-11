@@ -21,7 +21,13 @@
         <password>//input[@id='password']</password>
         <confirmation>//input[@id='confirmation']</confirmation>
         <submit_button>//button[@type='submit']</submit_button>
+        <validation_message>This is a required field.</validation_message>
     </registrationForm>
+
+    <pageElements>
+
+
+    </pageElements>
 
     <debug>true</debug>
 </elements>

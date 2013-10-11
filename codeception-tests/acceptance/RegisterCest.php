@@ -17,13 +17,13 @@ class RegisterCest {
         $I->wantTo('Create new user on website');
         $page = \ISM\Pages::getPage('home');
         $page->amOnPage();
-        $page->goRegistrationPage();
-
-
-
-        $page->addProductToShoppingCart()
-            ->goToCheckout();
-        $I->wait(5000);
+        $page->goRegistrationPage()
+            ->isCurrent()
+            ->checkForAllFormElementsPresent()
+            ->checkValidationMessage()
+            //->checkInvalidEmail()
+            ->makeRegister();
+            //->isCurrent();
 
     }
 

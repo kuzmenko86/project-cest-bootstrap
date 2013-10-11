@@ -19,9 +19,34 @@ class RegistrationPage extends BasePage
     /**
      * @return $this ISMRegistrationPage
      */
-    public function register()
+    public function checkForAllFormElementsPresent()
     {
-        $this->isCurrent();
+        $this->seeInField($this->pageResource->registrationForm->firstname,'');
+        $this->seeInField($this->pageResource->registrationForm->lastname,'');
+        $this->seeInField($this->pageResource->registrationForm->email_address,'');
+        $this->seeInField($this->pageResource->registrationForm->password,'');
+        $this->seeInField($this->pageResource->registrationForm->confirmation,'');
+        return $this;
+
+    }
+
+
+    public function checkValidationMessage()
+    {
+        $this->fillField($this->pageResource->registrationForm->firstname,'');
+        $this->fillField($this->pageResource->registrationForm->lastname,'');
+        $this->fillField($this->pageResource->registrationForm->email_address,'');
+        $this->fillField($this->pageResource->registrationForm->password,'');
+        $this->fillField($this->pageResource->registrationForm->confirmation,'');
+        $this->click($this->pageResource->registrationForm->submit_button);
+        $this->see($this->pageResource->registrationForm->validation_message);
+        return $this;
+    }
+//->checkInvalidEmail()
+
+
+    public function makeRegister()
+    {
         $this->fillField(
             $this->pageResource->registrationForm->firstname,
             $this->baseResource->MyData->firstname
@@ -43,6 +68,9 @@ class RegistrationPage extends BasePage
             $this->baseResource->MyData->confirmation
         );
         $this->click($this->pageResource->registrationForm->submit_button);
-        return $this;
+
+        return $this->getPage('my_account');
     }
+
+
 }
