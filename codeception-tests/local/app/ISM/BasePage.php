@@ -32,8 +32,6 @@ class BasePage extends AbstractPage
         $this->_baseResource = $this->loadConfig($this->_baseName);
     }
 
-
-
     public function loadConfig($xmlName)
     {
         $xmlFullName =  realpath(__DIR__ . DS . '..' . DS . '..'. DS . 'etc' . DS . $xmlName . ".xml");
@@ -183,13 +181,13 @@ class BasePage extends AbstractPage
     public function goToLoginPage()
     {
         $this->click($this->baseResource->pageElements->link_to_login);
-        return $page = \ISM\Pages::getPage('');
+        return $this->getPage('login');
 
     }
     public function goRegistrationPage()
     {
         $this->click($this->baseResource->pageElements->link_to_gegister);
-        return $page = \ISM\Pages::getPage('');
+        return $this->getPage('registration');
 
     }
 
