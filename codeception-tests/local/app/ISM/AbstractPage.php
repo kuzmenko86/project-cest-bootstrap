@@ -134,7 +134,7 @@ abstract class AbstractPage
     }
 
     /**
-     * @return  \WebGuy | bool
+     * @return \WebGuy | bool
      */
     public function getGuy()
     {
@@ -155,6 +155,8 @@ abstract class AbstractPage
     }
 
     /**
+     * Retrieve page resource property.
+     *
      * @return \SimpleXMLElement pageResource object
      */
     public function getPageResource()
@@ -168,7 +170,9 @@ abstract class AbstractPage
     }
 
     /**
-     * @return bool|\SimpleXMLElement Base resource object
+     * Retrieve base resource property.
+     *
+     * @return bool | \SimpleXMLElement Base resource object.
      */
     public function getBaseResource()
     {
@@ -223,7 +227,7 @@ abstract class AbstractPage
         $trace = debug_backtrace();
         trigger_error(
             'Undefined property via __get(): ' . $name . ' in ' . $trace[0]['file'] .
-                ' on line ' . $trace[0]['line'],
+            ' on line ' . $trace[0]['line'],
             E_USER_NOTICE
         );
         return null;
