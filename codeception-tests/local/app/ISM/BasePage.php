@@ -32,12 +32,7 @@ class BasePage extends AbstractPage
         $this->_baseResource = $this->loadConfig($this->_baseName);
     }
 
-    public function isCurrent()
-    {
-        $this->see();
-        $this->seeInTitle();
-        return $this;
-    }
+
 
     public function loadConfig($xmlName)
     {
@@ -177,4 +172,25 @@ class BasePage extends AbstractPage
         }
         return null;
     }
+    //all code befor this  comment need to be removed from this file, because this is settings
+    public function isCurrent()
+    {
+        $this->see();
+        $this->seeInTitle();
+        return $this;
+    }
+
+    public function goToLoginPage()
+    {
+        $this->click($this->baseResource->pageElements->link_to_login);
+        return $page = \ISM\Pages::getPage('');
+
+    }
+    public function goRegistrationPage()
+    {
+        $this->click($this->baseResource->pageElements->link_to_gegister);
+        return $page = \ISM\Pages::getPage('');
+
+    }
+
 }

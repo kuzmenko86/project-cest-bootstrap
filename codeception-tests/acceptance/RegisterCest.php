@@ -1,6 +1,6 @@
 <?php
 
-class CheckoutCest {
+class RegisterCest {
 
     public function _before()
     {
@@ -10,13 +10,17 @@ class CheckoutCest {
     {
     }
 
-    public function tryToSpendCheckout(\WebGuy $I)
+    public function tryToRegister(\WebGuy $I)
     {
         \ISM\Pages::setGuy($I);
 
-        $I->wantTo('make a purchase on Default magento environment');
-        $page = \ISM\Pages::getPage('pdp');
+        $I->wantTo('Create new user on website');
+        $page = \ISM\Pages::getPage('home');
         $page->amOnPage();
+        $page->goRegistrationPage();
+
+
+
         $page->addProductToShoppingCart()
             ->goToCheckout();
         $I->wait(5000);

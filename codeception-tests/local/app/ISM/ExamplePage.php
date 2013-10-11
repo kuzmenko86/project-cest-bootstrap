@@ -1,9 +1,9 @@
 <?php
 namespace ISM;
 
-class HomePage extends BasePage
+class ExamplePage extends BasePage
 {
-    protected $_xmlName = 'home';
+    protected $_xmlName = 'example_xml';
 
     public function __construct($xmlName = false)
     {
@@ -14,7 +14,5 @@ class HomePage extends BasePage
         parent::__construct();
         $this->_pageResource = $this->loadConfig($this->_xmlName);
     }
-
-
 
 }
