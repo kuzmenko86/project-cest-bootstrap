@@ -32,6 +32,7 @@ class BasePage extends AbstractPage
     public function goToLoginPage()
     {
         $this->click($this->baseResource->pageElements->link_to_login);
+        $this->wait(2000);
         return $this->getPage('login');
 
     }
@@ -39,10 +40,12 @@ class BasePage extends AbstractPage
     /**
      * @return RegistrationPage
      */
-    public function goRegistrationPage()
+    public function goRegistrationPage(&$page)
     {
         $this->click($this->baseResource->pageElements->link_to_gegister);
-        return $this->getPage('registration');
+        $this->wait(2000);
+        $page = $this->getPage('registration');
+        return $page;
 
     }
 

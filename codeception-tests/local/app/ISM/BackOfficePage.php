@@ -14,6 +14,7 @@ class BackOfficePage extends BasePage
         parent::__construct();
 
         $this->_pageResource = $this->loadConfig($this->_xmlName);
+
     }
 
     protected $login = 'ISM';
@@ -21,31 +22,47 @@ class BackOfficePage extends BasePage
 
     public function loginToBO()
     {
-        $this->wait(30000);
         $this->fillField(
             $this->pageResource->pageElements->login_field,
             $this->login
         );
-$this->wait(3000);
         $this->fillField(
             $this->pageResource->pageElements->password_field,
             $this->password
         );
 
         $this->click($this->pageResource->pageElements->login_to_bo_button);
-$this->wait(3000);
+
+
     }
 
-    public function goToSystem ($item)
+    public function goToBO ($item)
     {
-        $this->click('$item');
-        //return this;
+        switch($item)
+        {
+            case 'manage_customers' :
+                $this->click($this->pageResource->customers->managecustomers);
+                $this->wait('3000');
+                break;
+
+        }
+        return $this;
 
     }
+
     public function deleteCustomer()
     {
-        $this->click($this->pageResource->customers->managecustomers);
-        return this;
+
+        $this->goToBO('manage_customers');
+        $this->fillField($this->pageResource->customers->email_filter, $this->baseResource->MyData->email_address);
+        $this->click("//td[@class='filter-actions a-right']/button[2]");    //search button
+        $this->dontSee('No records found.');
+        $this->checkOption($this->pageResource->customers->first_option);   //select one available item (emai)
+        $this->click("//option[@value='delete']");  //check option delete
+        $this->click($this->pageResource->customers->button_submit);    //click submit button
+        $this->acceptPopup('Weet u het zeker?');
+        $this->wait(500);
+        return $this;
     }
 
 

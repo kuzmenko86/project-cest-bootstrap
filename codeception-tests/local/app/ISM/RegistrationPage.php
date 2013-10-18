@@ -71,10 +71,8 @@ class RegistrationPage extends BasePage
             $this->baseResource->MyData->confirmation
         );
         $this->click($this->pageResource->registrationForm->submit_button);
-
-        if (!$this->see($this->pageResource->pageElements->error_for_already_existing_account))
-            return $this->getPage('my_account');
-        return $this;//go to bo and delete an existing account, and run this function again
+        $this->wait(1000);
+        //return $this; //should be return my account
 
     }
 

@@ -18,8 +18,9 @@ class BachOfficeCest {
         $page = \ISM\Pages::getPage('back_office');
         $page->amOnPage();
         $page->loginToBO();
+        //$page->goToBO('manager_customers');
         $page->deleteCustomer();
-        $page->wait(5000);
+$page->wait(5000);
 
     }
 

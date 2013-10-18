@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <elements>
+    <projectSettings>
+        <title>http://magento-ee.alpha2.corp.ism-ukraine.com</title>
+    </projectSettings>
     <MyData>
         <firstname>Volodymyr</firstname>
         <lastname>Kuzmenko</lastname>

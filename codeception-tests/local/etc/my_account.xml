@@ -5,7 +5,7 @@
     </source>
 
     <codeception>
-        <amonpage><![CDATA[/customer/account/]]></amonpage>
+        <amonpage><![CDATA[/customer/account/index/]]></amonpage>
         <wantto>check My account page</wantto>
         <see>
             <row>My account</row>
