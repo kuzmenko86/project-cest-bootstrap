@@ -3,37 +3,34 @@ namespace ISM;
 
 use ISM\Intface\GuyIntface;
 
+/**
+ * Factory class for pages.
+ */
 class Pages
 {
+    const PAGE_SUFFIX_NAME = 'Page';
+    /**
+     * @var \WebGuy | bool
+     */
     public static $_guy = false;
 
+    /**
+     * Factory method.
+     *
+     * @param string $page Page name.
+     * @return AbstractPage
+     * @throws \Exception
+     */
     public static function getPage($page)
     {
         $pageClass = false;
+        $pageClassName = str_replace(' ', '', ucwords(str_replace('_', ' ', $page))) . static::PAGE_SUFFIX_NAME;
+        $pageClassName = '\\' . __NAMESPACE__ . '\\' . $pageClassName;
 
-        switch ($page) {
-            case 'home' :
-                $pageClass = new HomePage('home');
-                break;
-            case 'registration' :
-                $pageClass = new RegistrationPage('registration');
-                break;
-            case 'login' :
-                $pageClass = new LoginPage('login');
-                break;
-            case 'pdp' :
-                $pageClass = new PdpPage('pdp');
-                break;
-            case 'shopping_cart':
-                $pageClass = new ShoppingCartPage('shopping_cart');
-                break;
-            case 'my_account':
-                $pageClass = new MyAccountPage('my_account');
-                break;
-            case 'back_office':
-                $pageClass = new BackOfficePage('back_office');
-                break;
-            default : return false;
+        try {
+            $pageClass = new $pageClassName($page);
+        } catch (\Exception $e) {
+            throw new \Exception ('Cannot load class '. $pageClassName);
         }
 
         if ($pageClass && ($pageClass instanceof GuyIntface) && self::$_guy && (self::$_guy instanceof \WebGuy)) {
