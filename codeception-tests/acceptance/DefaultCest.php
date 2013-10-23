@@ -1,4 +1,9 @@
 <?php
+/**
+ * DELETE THIS FILE BEFORE LIFE
+ * This test will used for create simple test page
+ * need to be deleted when all tests are finished
+*/
 use \WebGuy;
 
 class DefaultCest

@@ -16,7 +16,7 @@ class RegisterCest {
 
         $I->wantTo('Create new user on website');
         $page = \ISM\Pages::getPage('home');
-        $page->amOnPage('/');
+        $page->amOnPage();
         $page->goRegistrationPage($page) // $page no is variable RegistrationPage class
             ->isCurrent()
             ->checkForAllFormElementsPresent()
@@ -25,7 +25,7 @@ class RegisterCest {
             ->makeRegister();
 
         $pageMyAccount = \ISM\Pages::getPage('my_account');
-        if ((string)$I->grabFromCurrentUrl() == $page->baseResource->projectSettings->title.$pageMyAccount->pageResource->codeception->amonpage)    //compare titles if we on my account page - everything is ok
+        if ((string)$I->grabFromCurrentUrl() == $page->baseResource->projectSettings->url.$pageMyAccount->pageResource->codeception->amonpage)    //compare url
         {
             $page = \ISM\Pages::getPage('my_account');
             $page->isCurrent();
@@ -40,11 +40,8 @@ class RegisterCest {
             $page = \ISM\Pages::getPage('registration');
             $page->amOnPage();
             $page->makeRegister();
-
         }
 
-
     }
-
 
 }

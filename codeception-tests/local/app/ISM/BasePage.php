@@ -29,11 +29,13 @@ class BasePage extends AbstractPage
     /**
      * @return bool|BasePage|HomePage|LoginPage|PdpPage|RegistrationPage|ShoppingCartPage
      */
-    public function goToLoginPage()
+    public function goToLoginPage(&$page)
     {
         $this->click($this->baseResource->pageElements->link_to_login);
         $this->wait(2000);
-        return $this->getPage('login');
+        $page = $this->getPage('login');
+        $page->isCurrent();
+        return $page;
 
     }
 
@@ -45,6 +47,17 @@ class BasePage extends AbstractPage
         $this->click($this->baseResource->pageElements->link_to_gegister);
         $this->wait(2000);
         $page = $this->getPage('registration');
+        $page->isCurrent();
+        return $page;
+
+    }
+
+    public function unlogin (&$page)
+    {
+        $this->click($this->baseResource->pageElements->unlogin);
+        $this->wait(4000);
+        $page = $this->getPage('home');
+        $page->isCurrent();
         return $page;
 
     }

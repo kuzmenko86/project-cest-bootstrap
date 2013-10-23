@@ -15,7 +15,7 @@ class LoginPage extends BasePage
         $this->_pageResource = $this->loadConfig($this->_xmlName);
     }
 
-    public function login()
+    public function login(&$page)
     {
         $this->fillField(
             $this->pageResource->pageElements->email,
@@ -25,9 +25,32 @@ class LoginPage extends BasePage
             $this->pageResource->pageElements->password,
             $this->baseResource->MyData->password
         );
-        $this->click($this->pageResource->pageElements->submit_button);
-        $this->see($this->pageResource->pageElements->invalid_login);
+        $this->click($this->pageResource->pageElements->login_button);
 
+        $this->wait(1000);
+        $this->dontSee($this->pageResource->pageElements->requireFieldMessage);
+        $this->dontSee($this->pageResource->pageElements->errorInvaliddata);
+        $page = $this->getPage('my_account');
+        $page->isCurrent();
+        return $page;
+
+    }
+
+    public function checkForLoginFormPresent ()
+    {
+        //$this->canSee($this->pageResource->pageElements->login_button);
+        $this->seeInField($this->pageResource->pageElements->email,'');
+        $this->seeInField($this->pageResource->pageElements->password,'');
         return $this;
+    }
+
+    public function checkRequireField ()
+    {
+        $this->fillField($this->pageResource->pageElements->email,'');
+        $this->fillField($this->pageResource->pageElements->password,'');
+        $this->click($this->pageResource->pageElements->login_button);
+        $this->see($this->pageResource->pageElements->requireFieldMessage);
+        return $this;
+
     }
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <elements>
     <projectSettings>
-        <title>http://magento-ee.alpha2.corp.ism-ukraine.com</title>
+        <url>http://magento-ee.alpha2.corp.ism-ukraine.com</url>
     </projectSettings>
     <MyData>
         <firstname>Volodymyr</firstname>
@@ -15,5 +15,6 @@
     <pageElements>
         <link_to_login>Log In</link_to_login>
         <link_to_gegister>register</link_to_gegister>
+        <unlogin>Log Out</unlogin>
     </pageElements>
 </elements>

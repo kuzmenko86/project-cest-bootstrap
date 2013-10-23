@@ -8,7 +8,7 @@
         <amonpage><![CDATA[/customer/account/login/]]></amonpage>
         <wantto>check login page</wantto>
         <see>
-            <row>My account</row>
+            <row>Login or Create an Account,h1</row>
             <row>New Customers,h2</row>
         </see>
         <seeintitle>Customer Login</seeintitle>
@@ -17,8 +17,10 @@
     <pageElements>
         <email>//input[@id='email']</email>
         <password>//input[@id='pass']</password>
-        <submit_button>//button[@id='send2']</submit_button>
+        <login_button>//button[@id='send2']</login_button>
         <invalid_login>Invalid login or password</invalid_login>
+        <requireFieldMessage>This is a required field.</requireFieldMessage>
+        <errorInvaliddata>Invalid login or password.</errorInvaliddata>
     </pageElements>
 
     <debug>true</debug>

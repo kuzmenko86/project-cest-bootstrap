@@ -14,7 +14,9 @@
         <intitle>My Account</intitle>
     </codeception>
 
+    <pageElements>
 
+    </pageElements>
 
 
 

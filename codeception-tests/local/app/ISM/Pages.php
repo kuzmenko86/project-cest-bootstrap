@@ -18,7 +18,7 @@ class Pages
      * Factory method.
      *
      * @param string $page Page name.
-     * @return AbstractPage
+     * @return AbstractPage|BackOfficePage|HomePage|LoginPage|MyAccountPage|PdpPage|RegistrationPage|ShoppingCartPage
      * @throws \Exception
      */
     public static function getPage($page)

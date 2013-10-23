@@ -15,6 +15,11 @@ class MyAccountPage extends BasePage
         $this->_pageResource = $this->loadConfig($this->_xmlName);
     }
 
+    public function checkMyAccountPage ()
+    {
+
+    }
+
 
 
 }
