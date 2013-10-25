@@ -5,13 +5,13 @@
     </source>
 
     <codeception>
-        <amonpage><![CDATA[/]]></amonpage>
-        <wantto>check home page</wantto>
+        <amonpage><![CDATA[/index.html]]></amonpage>
+        <wantto>check something on this page</wantto>
         <see>
-            <row>My account</row>
-
+            <row>some text</row>
+            <row>some text</row>
         </see>
-        <intitle>Enterprise Home Page</intitle>
+        <intitle>title text here</intitle>
     </codeception>
     <debug>true</debug>
 </elements>

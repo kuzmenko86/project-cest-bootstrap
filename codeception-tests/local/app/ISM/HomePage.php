@@ -1,4 +1,8 @@
 <?php
+/**
+ * This page should contain action which are possible between header and footer block
+ * except of check elements presentation
+*/
 namespace ISM;
 
 class HomePage extends BasePage
@@ -14,6 +18,17 @@ class HomePage extends BasePage
         parent::__construct();
         $this->_pageResource = $this->loadConfig($this->_xmlName);
     }
+
+    public function checkHomePageElements()
+    {
+
+    }
+
+    public function checkBannerRotator()
+    {
+
+    }
+
 
 
 

@@ -33,6 +33,7 @@ class BasePage extends AbstractPage
     {
         $this->click($this->baseResource->pageElements->link_to_login);
         $this->wait(2000);
+
         $page = $this->getPage('login');
         $page->isCurrent();
         return $page;
