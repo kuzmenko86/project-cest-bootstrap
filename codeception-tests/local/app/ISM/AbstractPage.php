@@ -1,5 +1,7 @@
 <?php
 namespace ISM;
+use ISM\PageFactory;
+
 /**
  * Class AbstractPage
  * Proxied methods from WebGuy parents
@@ -145,7 +147,7 @@ abstract class AbstractPage implements Intface\GuyIntface
 
     public function getPage($pageName)
     {
-        return \ISM\Pages::getPage($pageName);
+        return PageFactory::getPage($pageName);
     }
 
     public function loadConfig($xmlName)

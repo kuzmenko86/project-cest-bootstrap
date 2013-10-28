@@ -12,10 +12,10 @@ class RegisterCest {
 
     public function tryToRegister(\WebGuy $I)
     {
-        \ISM\Pages::setGuy($I);
+        \ISM\PageFactory::setGuy($I);
 
         $I->wantTo('Create new user on website');
-        $page = \ISM\Pages::getPage('home');
+        $page = \ISM\PageFactory::getPage('home');
         $page->amOnPage();
         $page->goRegistrationPage($page) // $page no is variable RegistrationPage class
             ->isCurrent()
@@ -24,20 +24,18 @@ class RegisterCest {
             ->checkInvalidEmail()
             ->makeRegister();
 
-        $pageMyAccount = \ISM\Pages::getPage('my_account');
-        if ((string)$I->grabFromCurrentUrl() == $page->baseResource->projectSettings->url.$pageMyAccount->pageResource->codeception->amonpage)    //compare url
+        $pageMyAccount = \ISM\PageFactory::getPage('my_account');
+        if ((string)$I->grabFromCurrentUrl() == $page->baseResource->projectSettings->url . $pageMyAccount->pageResource->codeception->amonpage)    //compare url
         {
-            $page = \ISM\Pages::getPage('my_account');
+            $page = \ISM\PageFactory::getPage('my_account');
             $page->isCurrent();
-        }
-        else
-        {
+        } else {
             //grab error text
-            $page = \ISM\Pages::getPage('back_office');
+            $page = \ISM\PageFactory::getPage('back_office');
             $page->amOnPage();
             $page->loginToBO();
             $page->deleteCustomer();
-            $page = \ISM\Pages::getPage('registration');
+            $page = \ISM\PageFactory::getPage('registration');
             $page->amOnPage();
             $page->makeRegister();
         }

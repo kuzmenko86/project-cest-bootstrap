@@ -6,7 +6,7 @@ use ISM\Intface\GuyIntface;
 /**
  * Factory class for pages.
  */
-class Pages
+class PageFactory
 {
     const PAGE_SUFFIX_NAME = 'Page';
     /**

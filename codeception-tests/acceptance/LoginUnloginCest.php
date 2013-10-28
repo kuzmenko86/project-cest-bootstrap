@@ -15,10 +15,10 @@ class LoginUnloginCest
     // tests
     public function tryToLoginUnlogin(WebGuy $I)
     {
-        \ISM\Pages::setGuy($I);
+        \ISM\PageFactory::setGuy($I);
 
         $I->wantToTest('login on website');
-        $page = \ISM\Pages::getPage('home');
+        $page = \ISM\PageFactory::getPage('home');
         $page->amOnPage();
         $page->isCurrent();
         $page->goToLoginPage($page)

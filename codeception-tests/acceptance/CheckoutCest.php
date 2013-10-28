@@ -12,10 +12,10 @@ class CheckoutCest {
 
     public function tryToSpendCheckout(\WebGuy $I)
     {
-        \ISM\Pages::setGuy($I);
+        \ISM\PageFactory::setGuy($I);
 
         $I->wantTo('make a purchase on Default magento environment');
-        $page = \ISM\Pages::getPage('pdp');
+        $page = \ISM\PageFactory::getPage('pdp');
         $page->amOnPage();
         $page->addProductToShoppingCart()
             ->goToCheckout();

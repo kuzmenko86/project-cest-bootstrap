@@ -18,7 +18,7 @@ class PdpPage extends BasePage
     public function addProductToShoppingCart()
     {
         $this->click($this->pageResource->pageElements->addToCart);
-        $page = \ISM\Pages::getPage('shopping_cart');
+        $page = $this->getPage('shopping_cart');
         return $page;
     }
 
@@ -27,7 +27,7 @@ class PdpPage extends BasePage
         $this->amOnPage("$link");
         //select conf option
         $this->click($this->pageResource->pageElements->addToCart);
-        $page = \ISM\Pages::getPage('shopping_cart');
+        $page = $this->getPage('shopping_cart');
         return $page;
     }
 

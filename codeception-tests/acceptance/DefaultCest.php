@@ -20,9 +20,9 @@ class DefaultCest
     // tests
     public function tryToTest35699(WebGuy $I) {
 
-        \ISM\Pages::setGuy($I);
+        \ISM\PageFactory::setGuy($I);
         $I->wantTo('test home page');
-        $page = \ISM\Pages::getPage('home');
+        $page = \ISM\PageFactory::getPage('home');
         $page->amOnPage();
         $page->checkBannerRotator();
 
