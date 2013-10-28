@@ -26,6 +26,9 @@ class BasePage extends AbstractPage
         return $this;
     }
 
+
+
+
     /**
      * @return bool|BasePage|HomePage|LoginPage|PdpPage|RegistrationPage|ShoppingCartPage
      */

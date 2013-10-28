@@ -42,7 +42,7 @@ namespace ISM;
  * @method \ISM\BasePage blur($el)
  * @method \ISM\BasePage dragAndDrop($el1, $el2)
  * @method \ISM\BasePage canSeeElement($selector)
- * @method \ISM\BasePage seeElement($selector)
+ * @method \ISM\BasePage seeElement($selector = null)
  * @method \ISM\BasePage pressKey($element, $char, $modifier = null)
  * @method \ISM\BasePage pressKeyUp($element, $char, $modifier = null)
  * @method \ISM\BasePage pressKeyDown($element, $char, $modifier = null)

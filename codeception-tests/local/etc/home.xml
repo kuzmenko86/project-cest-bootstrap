@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <elements>
     <source>
-        <title>ISM STORE EN Home page</title>
+        <title>Enterprise Home Page</title>
     </source>
 
     <codeception>
@@ -9,8 +9,14 @@
         <wantto>check home page</wantto>
         <see>
             <row>My account</row>
-
+            <row>My wishlist</row>
+            <row>Log In or register</row>
         </see>
+        <seeelement>
+            <row>//div[@class='col2-set']</row>
+            <row>//div[@class='col-1']</row>
+            <row>//div[@class='col-2']</row>
+        </seeelement>
         <intitle>Enterprise Home Page</intitle>
     </codeception>
     <debug>true</debug>

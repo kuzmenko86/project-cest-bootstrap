@@ -16,25 +16,19 @@ class DefaultCest
     public function _after()
     {
     }
-/*
+
     // tests
     public function tryToTest35699(WebGuy $I) {
-        //$I = new WebGuy($scenario);
 
-        $I->wantTo('login to Magento website');
-        $I->amOnPage("/");
-        $I->click("register");
-        $I->fillField("//input[@id='firstname']","Volodymyr");
-        $I->fillField("//input[@id='lastname']","Kuzmenko");
-        $I->fillField("//input[@id='email_address']","v.kuzmenko@ism-ukraine.com");
-        $I->fillField("//input[@id='password']","015150");
-        $I->fillField("//input[@id='confirmation']","015150");
-        $I->click("//button[ancestor::div[@class='buttons-set form-buttons']]");
-        sleep(10);
+        \ISM\Pages::setGuy($I);
+        $I->wantTo('test home page');
+        $page = \ISM\Pages::getPage('home');
+        $page->amOnPage();
+        $page->checkBannerRotator();
 
     }
-*/
-    public function tryToMakeOrder(WebGuy $I){
+
+    private function tryToMakeOrder(WebGuy $I){
         $I->wantTo('make a purchase on Defoult magento environment');
 
         $I->amOnPage("/apparel/classic-jeans.html");

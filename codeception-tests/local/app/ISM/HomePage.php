@@ -21,11 +21,15 @@ class HomePage extends BasePage
 
     public function checkHomePageElements()
     {
-
+        $this->isCurrent();
+        return $this;
     }
 
     public function checkBannerRotator()
     {
+        $this->seeElement();
+        return $this;
+
 
     }
 
