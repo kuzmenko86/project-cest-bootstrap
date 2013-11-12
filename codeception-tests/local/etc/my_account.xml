@@ -15,12 +15,7 @@
     </codeception>
 
     <pageElements>
-
     </pageElements>
-
-
-
-
 
     <debug>true</debug>
 </elements>

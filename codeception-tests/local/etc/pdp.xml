@@ -15,8 +15,16 @@
     </codeception>
 
     <pageElements>
-        <addToCart>Add to Cart</addToCart>
+        <add_to_cart>Add to Cart</add_to_cart>
+        <conf_option>'attribute525','99'</conf_option>
     </pageElements>
+
+    <entityProductId>
+        <id>120</id>
+        <id>119</id>
+        <id>93</id>
+        <id>123</id>
+    </entityProductId>
 
     <debug>true</debug>
 </elements>

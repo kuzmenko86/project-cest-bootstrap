@@ -18,6 +18,31 @@ class BasePage extends AbstractPage
         }
         $this->_baseResource = $this->loadConfig($this->_baseName);
     }
+    public function grabTextFrom($p)
+    {
+        return $this->getGuy()->grabTextFrom($p);
+    }
+
+    public function grabValueFrom($p)
+    {
+        return $this->getGuy()->grabValueFrom($p);
+    }
+
+    public function canSee($p)
+    {
+        return $this->getGuy()->canSee($p);
+    }
+
+    public function callSeleniumTitle ()
+    {
+        $pageTitle = NULL;
+
+        $this->getGuy()->executeInSelenium(function(\WebDriver\Session $webdriver) use (&$pageTitle) {
+            $pageTitle = $webdriver->title();
+        });
+
+        return $pageTitle;
+    }
 
     public function isCurrent()
     {
@@ -25,9 +50,6 @@ class BasePage extends AbstractPage
         $this->seeInTitle();
         return $this;
     }
-
-
-
 
     /**
      * @return bool|BasePage|HomePage|LoginPage|PdpPage|RegistrationPage|ShoppingCartPage

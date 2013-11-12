@@ -16,5 +16,6 @@
         <link_to_login>Log In</link_to_login>
         <link_to_gegister>register</link_to_gegister>
         <unlogin>Log Out</unlogin>
+        <title404>We're sorry, the page you’re looking for can not be found.</title404>
     </pageElements>
 </elements>

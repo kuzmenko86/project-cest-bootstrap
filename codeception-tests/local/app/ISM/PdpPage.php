@@ -15,19 +15,39 @@ class PdpPage extends BasePage
         $this->_pageResource = $this->loadConfig($this->_xmlName);
     }
 
-    public function addProductToShoppingCart()
+
+    public function goToConfigurableProduct ()
     {
-        $this->click($this->pageResource->pageElements->addToCart);
+        $productId = (array)$this->pageResource->entityProductId->id;
+        $qtyProductIds = count($productId);
+
+        for ($i = 0; $i < $qtyProductIds; $i++)
+        {
+            $this->amOnPage("/catalog/product/view/id/$productId[$i]");
+            $title = $this->callSeleniumTitle();
+
+            if ($title != $this->baseResource->pageElements->title404)
+            {
+                return $this;
+                break;
+            }
+        }
+    }
+
+    public function addSimpleProductToShoppingCart()
+    {
+        $this->click($this->pageResource->pageElements->add_to_cart);
+        $this->wait(1000);
         $page = $this->getPage('shopping_cart');
         return $page;
     }
 
-    public function addConfigurableProductToShoppingCart($link)
+    public function addProductToShoppingCart()
     {
-        $this->amOnPage("$link");
-        //select conf option
-        $this->click($this->pageResource->pageElements->addToCart);
+        $this->click($this->pageResource->pageElements->add_to_cart);
+        $this->wait(1000);
         $page = $this->getPage('shopping_cart');
+        $page->isCurrent();
         return $page;
     }
 

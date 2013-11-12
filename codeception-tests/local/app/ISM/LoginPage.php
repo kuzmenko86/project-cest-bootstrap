@@ -28,8 +28,8 @@ class LoginPage extends BasePage
         $this->click($this->pageResource->pageElements->login_button);
 
         $this->wait(1000);
-        $this->dontSee($this->pageResource->pageElements->requireFieldMessage);
-        $this->dontSee($this->pageResource->pageElements->errorInvaliddata);
+        $this->dontSee($this->pageResource->pageElements->require_field_message);
+        $this->dontSee($this->pageResource->pageElements->error_invalid_data);
         $page = $this->getPage('my_account');
         $page->isCurrent();
         return $page;
@@ -49,7 +49,7 @@ class LoginPage extends BasePage
         $this->fillField($this->pageResource->pageElements->email,'');
         $this->fillField($this->pageResource->pageElements->password,'');
         $this->click($this->pageResource->pageElements->login_button);
-        $this->see($this->pageResource->pageElements->requireFieldMessage);
+        $this->see($this->pageResource->pageElements->require_field_message);
         return $this;
 
     }

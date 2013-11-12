@@ -12,6 +12,12 @@
             <row>New Customers,h2</row>
         </see>
         <seeintitle>Customer Login</seeintitle>
+
+        <seeelement>
+            <row>//div[@class='col2-set']</row>
+            <row>//div[@class='col-1 registered-users']</row>
+            <row>//div[@class='col-2 new-users']</row>
+        </seeelement>
     </codeception>
 
     <pageElements>
@@ -19,8 +25,8 @@
         <password>//input[@id='pass']</password>
         <login_button>//button[@id='send2']</login_button>
         <invalid_login>Invalid login or password</invalid_login>
-        <requireFieldMessage>This is a required field.</requireFieldMessage>
-        <errorInvaliddata>Invalid login or password.</errorInvaliddata>
+        <require_field_message>This is a required field.</require_field_message>
+        <error_invalid_data>Invalid login or password.</error_invalid_data>
     </pageElements>
 
     <debug>true</debug>

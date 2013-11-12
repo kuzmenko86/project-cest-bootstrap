@@ -13,13 +13,18 @@ class CheckoutCest {
     public function tryToSpendCheckout(\WebGuy $I)
     {
         \ISM\PageFactory::setGuy($I);
-
         $I->wantTo('make a purchase on Default magento environment');
         $page = \ISM\PageFactory::getPage('pdp');
-        $page->amOnPage();
-        $page->addProductToShoppingCart()
-            ->goToCheckout();
-        $I->wait(5000);
+        $page->goToConfigurableProduct();
+        $I->selectOption('attribute525','99');//select conf option
+        $page->addProductToShoppingCart();
+
+
+
+
+
+
+/*
 
 // needs to ve refacrored
         $I->wantTo('make a purchase on Defoult magento environment');
@@ -62,7 +67,7 @@ class CheckoutCest {
         sleep(10);
 
 
-
+*/
 
 
 
