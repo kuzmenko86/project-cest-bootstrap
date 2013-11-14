@@ -44,10 +44,12 @@ class PdpPage extends BasePage
 
     public function addProductToShoppingCart()
     {
+        $productTitle = (string)$this->grabTextFrom($this->pageResource->pageElements->product_title);
         $this->click($this->pageResource->pageElements->add_to_cart);
         $this->wait(1000);
         $page = $this->getPage('shopping_cart');
         $page->isCurrent();
+        $page->see($productTitle);
         return $page;
     }
 

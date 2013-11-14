@@ -16,7 +16,10 @@
 
     <pageElements>
         <add_to_cart>Add to Cart</add_to_cart>
-        <conf_option>'attribute525','99'</conf_option>
+        <conf_option_attribute>attribute525</conf_option_attribute>
+        <conf_option_attribute_value>99</conf_option_attribute_value>
+        <product_title>//div[@class='product-name']/h1</product_title>
+
     </pageElements>
 
     <entityProductId>

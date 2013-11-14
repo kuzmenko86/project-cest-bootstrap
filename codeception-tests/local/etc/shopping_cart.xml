@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <elements>
     <source>
-        <title>Classic Jeans - Apparel</title>
+        <title>Shopping Cart</title>
     </source>
 
     <codeception>
         <amonpage><![CDATA[/checkout/cart/]]></amonpage>
         <wantto>check shopping cart page</wantto>
         <see>
-            <row>Estimate Shipping and Tat</row>
+            <row>Estimate Shipping and Tax</row>
             <row>Discount Codes</row>
         </see>
-        <seeintitle>Classic Jeans - Apparel</seeintitle>
+        <seeintitle>Shopping Cart</seeintitle>
     </codeception>
 
     <pageElements>

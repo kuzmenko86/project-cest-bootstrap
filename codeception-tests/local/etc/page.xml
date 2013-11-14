@@ -7,10 +7,12 @@
         <firstname>Volodymyr</firstname>
         <lastname>Kuzmenko</lastname>
         <email_address>v.kuzmenko1@ism-ukraine.com</email_address>
+        <postcode>1911JA</postcode>
+        <telephone>0625555555</telephone>
         <password>015150</password>
         <confirmation>015150</confirmation>
         <address_1>my address</address_1>
-        <test_field>this is test</test_field>
+        <test_data>this is test</test_data>
     </MyData>
     <pageElements>
         <link_to_login>Log In</link_to_login>

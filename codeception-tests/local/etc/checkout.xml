@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elements>
+    <source>
+        <title>Checkout</title>
+    </source>
+
+    <codeception>
+        <amonpage><![CDATA[/checkout/onepage/]]></amonpage>
+        <wantto>check checout</wantto>
+        <see>
+            <row>Checkout,h1</row>
+            <row>Your Checkout Progress</row>
+        </see>
+        <intitle>Checkout</intitle>
+    </codeception>
+    <pageElements>
+        <radio_guest>login:guest</radio_guest>
+        <ragio_register>login:register</ragio_register>
+        <button_next_step>Continue</button_next_step>
+        <button_next_on_billing>//div[@id='billing-buttons-container']/button</button_next_on_billing>
+        <button_next_on_shipping>//div[@id='shipping-method-buttons-container']/button</button_next_on_shipping>
+        <button_next_on_payment>//div[@id='payment-buttons-container']/button</button_next_on_payment>
+        <button_place_order>Place Order</button_place_order>
+        <radio_check_many_order>p_method_checkmo</radio_check_many_order>
+
+
+        <alert_require_field>This is a required field.</alert_require_field>
+        <radio_use_for_shipping>billing:use_for_shipping_yes</radio_use_for_shipping>
+
+    </pageElements>
+    <addressFormFields>
+        <firstname>//input[@id='billing:firstname']</firstname>
+        <lastname>//input[@id='billing:lastname']</lastname>
+        <email>//input[@id='billing:email']</email>
+        <street1>//input[@id='billing:street1']</street1>
+        <city>//input[@id='billing:city']</city>
+        <postcode>//input[@id='billing:postcode']</postcode>
+        <telephone>//input[@id='billing:telephone']</telephone>
+        <pasword>//input[@id='billing:customer_password']</pasword>
+        <confirmation>//input[@id='billing:confirm_password']</confirmation>
+    </addressFormFields>
+
+
+    <debug>true</debug>
+</elements>
