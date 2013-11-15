@@ -78,6 +78,9 @@ class BasePage extends AbstractPage
 
     }
 
+    /**
+     * @return HomePage
+     */
     public function unlogin (&$page)
     {
         $this->click($this->baseResource->pageElements->unlogin);

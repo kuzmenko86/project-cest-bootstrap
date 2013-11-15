@@ -15,40 +15,32 @@ class CheckoutPage extends BasePage
         $this->_pageResource = $this->loadConfig($this->_xmlName);
     }
 
-    public function spendCheckoutAsGuest ()
-    {
-        $this->checkOption($this->pageResource->pageElements->radio_guest);
-        $this->click($this->pageResource->pageElements->button_next_step);
-        $this->wait(1000);
-
-        $this->spendCheckoutMethod("Guest");
-        //$this->spendStepBilling();
-        $this->spendStepShipping();
-        $this->spendStepPaymentInformation();
-        $this->spendOrderReview();
-
-    }
-
     public function spendCheckoutMethod($likeWho)
     {
-        if ($likeWho == Guest){
+        if ($likeWho == "Login"){
+            $this->fillField($this->pageResource->addressFormFields->login_eamil, $this->baseResource->MyData->email_address);
+            $this->fillField($this->pageResource->addressFormFields->login_password, $this->baseResource->MyData->password);
+            $this->click($this->pageResource->pageElements->button_login);
+        }
+        elseif ($likeWho == "Guest"){
             $this->checkOption($this->pageResource->pageElements->radio_guest);
             $this->click($this->pageResource->pageElements->button_next_step);
-            $this->wait(1000);
-            $this->spendStepBilling($likeWho);
-
         }
-        if ($likeWho == Register){
+        elseif ($likeWho == "Register"){
             $this->checkOption($this->pageResource->pageElements->ragio_register);
             $this->click($this->pageResource->pageElements->button_next_step);
-            $this->wait(1000);
-            $this->spendStepBilling($likeWho);
         }
+
+        $this->wait(1000);
+        $this->spendStepBilling($likeWho);
+
+        return $this;
 
     }
 
     public function spendStepBilling($Im)
     {
+        if ($Im != "Login"){
             $this->click($this->pageResource->pageElements->button_next_on_billing);//continue button on checkout
             $this->see($this->pageResource->pageElements->alert_require_field);
             $this->fillField($this->pageResource->addressFormFields->firstname,$this->baseResource->MyData->firstname);
@@ -58,15 +50,17 @@ class CheckoutPage extends BasePage
             $this->fillField($this->pageResource->addressFormFields->city,"test city");
             $this->fillField($this->pageResource->addressFormFields->postcode,$this->baseResource->MyData->postcode);
             $this->fillField($this->pageResource->addressFormFields->telephone,$this->baseResource->MyData->telephone);
-            if ($Im == Register){
+
+            if ($Im == "Register"){
                 $this->fillField($this->pageResource->addressFormFields->pasword,$this->baseResource->MyData->password);
                 $this->fillField($this->pageResource->addressFormFields->confirmation,$this->baseResource->MyData->confirmation);
             }
+
             $this->checkOption($this->pageResource->pageElements->radio_use_for_shipping);
-            $this->click($this->pageResource->pageElements->button_next_on_billing);
-            $this->wait(3000);//go to shipping step
+        }
 
-
+        $this->click($this->pageResource->pageElements->button_next_on_billing);
+        $this->wait(3000);//go to shipping step
         return $this;
 
     }
@@ -87,9 +81,15 @@ class CheckoutPage extends BasePage
         return $this;
     }
 
+    /**
+     * last step of checkout
+     * @return AbstractPage|BackOfficePage|CheckoutPage|HomePage|LoginPage|MyAccountPage|PdpPage|RegistrationPage|ShoppingCartPage|ThankYouPage
+     */
     public function spendOrderReview()
     {
         $this->click($this->pageResource->pageElements->button_place_order);
         $this->wait(3000);
+        $page = $this->getPage('thank_you_page');
+        return $page;
     }
 }

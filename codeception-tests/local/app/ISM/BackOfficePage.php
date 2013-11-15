@@ -36,6 +36,11 @@ class BackOfficePage extends BasePage
 
     }
 
+    /**
+     * Here will be a lot of cases
+     * @param $item
+     * @return $this
+     */
     public function goToBO ($item)
     {
         switch($item)

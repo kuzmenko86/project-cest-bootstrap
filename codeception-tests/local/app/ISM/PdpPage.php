@@ -32,9 +32,14 @@ class PdpPage extends BasePage
                 break;
             }
         }
+
     }
 
-    public function addSimpleProductToShoppingCart()
+    /**
+     * @param $page
+     * @return ShoppingCartPage
+     */
+    public function addSimpleProductToShoppingCart(&$page)
     {
         $this->click($this->pageResource->pageElements->add_to_cart);
         $this->wait(1000);
@@ -42,6 +47,10 @@ class PdpPage extends BasePage
         return $page;
     }
 
+    /**
+     * adding product to shopping cart and check if it present on the shopping cart product list
+     * @return ShoppingCartPage
+     */
     public function addProductToShoppingCart()
     {
         $productTitle = (string)$this->grabTextFrom($this->pageResource->pageElements->product_title);

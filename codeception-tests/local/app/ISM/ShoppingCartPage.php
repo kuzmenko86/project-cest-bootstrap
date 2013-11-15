@@ -15,6 +15,11 @@ class ShoppingCartPage extends BasePage
         $this->_pageResource = $this->loadConfig($this->_xmlName);
     }
 
+    /**
+     * goToCheckout method simply press the button go to checkout
+     *
+     * @return CheckoutPage
+     */
     public function goToCheckout()
     {
         $this->click($this->pageResource->pageElements->go_to_checkout);

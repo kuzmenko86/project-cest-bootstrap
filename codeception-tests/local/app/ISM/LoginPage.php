@@ -15,6 +15,10 @@ class LoginPage extends BasePage
         $this->_pageResource = $this->loadConfig($this->_xmlName);
     }
 
+    /**
+     * @param $page
+     * @return AbstractPage|BackOfficePage|CheckoutPage|HomePage|LoginPage|MyAccountPage|PdpPage|RegistrationPage|ShoppingCartPage
+     */
     public function login(&$page)
     {
         $this->fillField(

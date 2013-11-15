@@ -16,19 +16,22 @@
     <pageElements>
         <radio_guest>login:guest</radio_guest>
         <ragio_register>login:register</ragio_register>
+        <radio_check_many_order>p_method_checkmo</radio_check_many_order>
+        <radio_use_for_shipping>billing:use_for_shipping_yes</radio_use_for_shipping>
+
         <button_next_step>Continue</button_next_step>
         <button_next_on_billing>//div[@id='billing-buttons-container']/button</button_next_on_billing>
         <button_next_on_shipping>//div[@id='shipping-method-buttons-container']/button</button_next_on_shipping>
         <button_next_on_payment>//div[@id='payment-buttons-container']/button</button_next_on_payment>
         <button_place_order>Place Order</button_place_order>
-        <radio_check_many_order>p_method_checkmo</radio_check_many_order>
-
+    <button_login>//li[@class="buttons-set"]/button</button_login>
 
         <alert_require_field>This is a required field.</alert_require_field>
-        <radio_use_for_shipping>billing:use_for_shipping_yes</radio_use_for_shipping>
 
     </pageElements>
     <addressFormFields>
+        <login_eamil>//input[@id='login-email']</login_eamil>
+        <login_password>//input[@id='login-password']</login_password>
         <firstname>//input[@id='billing:firstname']</firstname>
         <lastname>//input[@id='billing:lastname']</lastname>
         <email>//input[@id='billing:email']</email>
