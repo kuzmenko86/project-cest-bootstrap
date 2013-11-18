@@ -89,7 +89,7 @@ class CheckoutPage extends BasePage
     {
         $this->click($this->pageResource->pageElements->button_place_order);
         $this->wait(3000);
-        $page = $this->getPage('thank_you_page');
+        $page = $this->getPage('thank_you');
         return $page;
     }
 }

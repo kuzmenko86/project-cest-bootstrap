@@ -21,11 +21,11 @@ class LoginUnloginCest
         $page = \ISM\PageFactory::getPage('home');
         $page->amOnPage();
         $page->isCurrent();
-        $page->goToLoginPage($page)
+        $page->goToLoginPage()
             ->checkForLoginFormPresent()
             ->checkRequireField()
-            ->login($page)
-            ->unlogin($page);
+            ->login()
+            ->unlogin();
 
 
 

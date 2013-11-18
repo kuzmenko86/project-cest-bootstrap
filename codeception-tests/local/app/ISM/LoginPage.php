@@ -19,7 +19,7 @@ class LoginPage extends BasePage
      * @param $page
      * @return AbstractPage|BackOfficePage|CheckoutPage|HomePage|LoginPage|MyAccountPage|PdpPage|RegistrationPage|ShoppingCartPage
      */
-    public function login(&$page)
+    public function login()
     {
         $this->fillField(
             $this->pageResource->pageElements->email,
@@ -48,6 +48,10 @@ class LoginPage extends BasePage
         return $this;
     }
 
+    /**
+     * @param $page
+     * @return AbstractPage|BackOfficePage|CheckoutPage|HomePage|LoginPage|MyAccountPage|PdpPage|RegistrationPage|ShoppingCartPage
+     */
     public function checkRequireField ()
     {
         $this->fillField($this->pageResource->pageElements->email,'');
