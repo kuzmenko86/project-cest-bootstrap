@@ -44,5 +44,5 @@
     </addressFormFields>
 
 
-    <debug>true</debug>
+    <debug>false</debug>
 </elements>

@@ -19,5 +19,5 @@
         </seeelement>
         <intitle>Enterprise Home Page</intitle>
     </codeception>
-    <debug>true</debug>
+    <debug>false</debug>
 </elements>

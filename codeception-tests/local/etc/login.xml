@@ -29,5 +29,5 @@
         <error_invalid_data>Invalid login or password.</error_invalid_data>
     </pageElements>
 
-    <debug>true</debug>
+    <debug>false</debug>
 </elements>

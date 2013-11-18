@@ -35,5 +35,5 @@
         <password_field>#login</password_field>
     </pageElements>
 
-    <debug>true</debug>
+    <debug>false</debug>
 </elements>

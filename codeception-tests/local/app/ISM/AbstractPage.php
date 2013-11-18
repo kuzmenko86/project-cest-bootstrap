@@ -108,7 +108,7 @@ use ISM\PageFactory;
 abstract class AbstractPage implements Intface\GuyIntface
 {
     protected $_guy = false;
-    protected $_isDebug = true;
+    protected $_isDebug = false;
 
     /**
      * @var bool|\SimpleXMLElement
@@ -158,7 +158,7 @@ abstract class AbstractPage implements Intface\GuyIntface
             $this->_xmlFullName = $xmlFullName;
             return simplexml_load_file($xmlFullName);
         } else {
-            echo "\nCannot load file ".$xmlFullName;
+            echo "\nCannot load file ".$xmlFullName." at class ".get_class($this);
         }
         return false;
     }
@@ -195,7 +195,12 @@ abstract class AbstractPage implements Intface\GuyIntface
 
     public function isDebugEnabled()
     {
-        return isset($this->getPageResource()->debug) ? $this->getPageResource()->debug : $this->_isDebug;
+        if (isset($this->getPageResource()->debug)) {
+            $result = ((string)$this->getPageResource()->debug == 'true') ? true : false;
+        } else {
+            $result = $this->_isDebug;
+        }
+        return $result;
     }
 
     public function __call($nameMethod, $arguments)
@@ -223,7 +228,7 @@ abstract class AbstractPage implements Intface\GuyIntface
             return $result;
         }
 
-        $this->_logMessage("Try get pageResource->$name in class ".get_class($this));
+        $this->_logMessage("Try get pageResource->$name at class ".get_class($this));
         if ( isset($this->getPageResource()->$name) ) {
             return $this->getPageResource()->$name;
         }

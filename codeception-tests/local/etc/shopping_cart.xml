@@ -18,5 +18,5 @@
         <go_to_checkout>//button[@class='button btn-proceed-checkout btn-checkout']</go_to_checkout>
     </pageElements>
 
-    <debug>true</debug>
+    <debug>false</debug>
 </elements>

@@ -29,5 +29,5 @@
         <id>123</id>
     </entityProductId>
 
-    <debug>true</debug>
+    <debug>false</debug>
 </elements>

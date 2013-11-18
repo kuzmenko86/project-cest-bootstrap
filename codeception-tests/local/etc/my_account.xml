@@ -17,5 +17,5 @@
     <pageElements>
     </pageElements>
 
-    <debug>true</debug>
+    <debug>false</debug>
 </elements>
