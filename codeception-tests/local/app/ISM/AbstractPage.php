@@ -215,6 +215,9 @@ abstract class AbstractPage implements Intface\GuyIntface
             $this->_callExtractedArgs($nameMethod, $nodeName);
             return $this;
         } else {
+            for ($i = 0; $i < count($args); $i++) {
+                $args[$i] = (string) $args[$i];
+            }
             call_user_func_array(array($this->_guy, $nameMethod), $args);
             $this->_logCallWebGuy($nameMethod, implode(',', $arguments));
             return $this;
