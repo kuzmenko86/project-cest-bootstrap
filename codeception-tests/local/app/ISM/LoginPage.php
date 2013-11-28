@@ -31,7 +31,7 @@ class LoginPage extends BasePage
         );
         $this->click($this->pageResource->pageElements->login_button);
 
-        $this->wait(1000);
+        $this->wait(1);
         $this->dontSee($this->pageResource->pageElements->require_field_message);
         $this->dontSee($this->pageResource->pageElements->error_invalid_data);
         $page = $this->getPage('my_account');

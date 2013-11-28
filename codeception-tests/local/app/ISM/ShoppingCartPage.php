@@ -23,7 +23,7 @@ class ShoppingCartPage extends BasePage
     public function goToCheckout()
     {
         $this->click($this->pageResource->pageElements->go_to_checkout);
-        $this->wait(1000);
+        $this->wait(1);
         $page = $this->getPage('checkout');
         $page->isCurrent();
         return $page;

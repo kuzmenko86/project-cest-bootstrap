@@ -30,7 +30,7 @@ use ISM\PageFactory;
  * @method \ISM\BasePage setCookie($cookie, $value)
  * @method \ISM\BasePage resetCookie($cookie)
  * @method \ISM\BasePage grabCookie($cookie)
- * @method \ISM\BasePage amOnPage($page)
+ * @method \ISM\BasePage amOnPage($page = null)
  * @method \ISM\BasePage canSee($text, $selector = null)
  * @method \ISM\BasePage see($text, $selector = null)
  * @method \ISM\BasePage cantSee($text, $selector = null)

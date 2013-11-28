@@ -47,7 +47,7 @@ class BackOfficePage extends BasePage
         {
             case 'manage_customers' :
                 $this->click($this->pageResource->customers->managecustomers);
-                $this->wait('3000');
+                $this->wait('3');
                 break;
 
         }
@@ -66,7 +66,7 @@ class BackOfficePage extends BasePage
         $this->click("//option[@value='delete']");  //check option delete
         $this->click($this->pageResource->customers->button_submit);    //click submit button
         $this->acceptPopup('Weet u het zeker?');
-        $this->wait(500);
+        $this->wait(1);
         return $this;
     }
 

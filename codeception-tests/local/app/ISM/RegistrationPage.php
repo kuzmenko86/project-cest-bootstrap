@@ -71,7 +71,7 @@ class RegistrationPage extends BasePage
             $this->baseResource->MyData->confirmation
         );
         $this->click($this->pageResource->registrationForm->submit_button);
-        $this->wait(1000);
+        $this->wait(1);
         //return $this; //should be return my account
 
     }

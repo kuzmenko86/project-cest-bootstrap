@@ -20,25 +20,25 @@ class BasePage extends AbstractPage
     }
     public function grabTextFrom($p)
     {
-        return $this->getGuy()->grabTextFrom($p);
+        return $this->getGuy()->grabTextFrom((string)$p);
     }
 
     public function grabValueFrom($p)
     {
-        return $this->getGuy()->grabValueFrom($p);
+        return $this->getGuy()->grabValueFrom((string)$p);
     }
 
     public function canSee($p)
     {
-        return $this->getGuy()->canSee($p);
+        return $this->getGuy()->canSee((string)$p);
     }
 
     public function callSeleniumTitle ()
     {
         $pageTitle = NULL;
 
-        $this->getGuy()->executeInSelenium(function(\WebDriver\Session $webdriver) use (&$pageTitle) {
-            $pageTitle = $webdriver->title();
+        $this->getGuy()->executeInSelenium(function(\WebDriver $webdriver) use (&$pageTitle) {
+            $pageTitle = $webdriver->getTitle();
         });
 
         return $pageTitle;
@@ -57,7 +57,7 @@ class BasePage extends AbstractPage
     public function goToLoginPage()
     {
         $this->click($this->baseResource->pageElements->link_to_login);
-        $this->wait(2000);
+        $this->wait(2);
 
         $page = $this->getPage('login');
         $page->isCurrent();
@@ -71,7 +71,7 @@ class BasePage extends AbstractPage
     public function goRegistrationPage()
     {
         $this->click($this->baseResource->pageElements->link_to_gegister);
-        $this->wait(2000);
+        $this->wait(2);
         $page = $this->getPage('registration');
         $page->isCurrent();
         return $page;
@@ -85,7 +85,7 @@ class BasePage extends AbstractPage
     public function unlogin ()
     {
         $this->click($this->baseResource->pageElements->unlogin);
-        $this->wait(5000);
+        $this->wait(5);
         $page = $this->getPage('home');
         $page->isCurrent();
         return $page;

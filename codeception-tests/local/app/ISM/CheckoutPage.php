@@ -23,15 +23,16 @@ class CheckoutPage extends BasePage
             $this->click($this->pageResource->pageElements->button_login);
         }
         elseif ($likeWho == "Guest"){
-            $this->checkOption($this->pageResource->pageElements->radio_guest);
+            $this->selectOption($this->pageResource->pageElements->as_who, $this->pageResource->pageElements->radio_as_guest);
+            //$this->click('#login:register'); can be used
             $this->click($this->pageResource->pageElements->button_next_step);
         }
         elseif ($likeWho == "Register"){
-            $this->checkOption($this->pageResource->pageElements->ragio_register);
+            $this->selectOption($this->pageResource->pageElements->as_who, $this->pageResource->pageElements->radio_as_register);
             $this->click($this->pageResource->pageElements->button_next_step);
         }
 
-        $this->wait(1000);
+        $this->wait(1);
         $this->spendStepBilling($likeWho);
 
         return $this;
@@ -55,12 +56,11 @@ class CheckoutPage extends BasePage
                 $this->fillField($this->pageResource->addressFormFields->pasword,$this->baseResource->MyData->password);
                 $this->fillField($this->pageResource->addressFormFields->confirmation,$this->baseResource->MyData->confirmation);
             }
-
-            $this->checkOption($this->pageResource->pageElements->radio_use_for_shipping);
+            $this->selectOption($this->pageResource->pageElements->billing_form, $this->pageResource->pageElements->radio_use_for_shipping);
         }
 
         $this->click($this->pageResource->pageElements->button_next_on_billing);
-        $this->wait(3000);//go to shipping step
+        $this->wait(3);//go to shipping step
         return $this;
 
     }
@@ -68,16 +68,16 @@ class CheckoutPage extends BasePage
     public function spendStepShipping()
     {
         $this->click($this->pageResource->pageElements->button_next_on_shipping);//continue button lead us to payment method step
-        $this->wait(3000);
+        $this->wait(3);
         return $this;
 
     }
 
     public function spendStepPaymentInformation()
     {
-        $this->checkOption($this->pageResource->pageElements->radio_check_many_order);
+        $this->selectOption($this->pageResource->pageElements->pyment_method_form, $this->pageResource->pageElements->radio_check_many_order);
         $this->click($this->pageResource->pageElements->button_next_on_payment);//continue button lead us to order review
-        $this->wait(3000);
+        $this->wait(3);
         return $this;
     }
 
@@ -88,7 +88,7 @@ class CheckoutPage extends BasePage
     public function spendOrderReview()
     {
         $this->click($this->pageResource->pageElements->button_place_order);
-        $this->wait(3000);
+        $this->wait(3);
         $page = $this->getPage('thank_you');
         return $page;
     }

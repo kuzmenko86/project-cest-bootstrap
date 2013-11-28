@@ -10,10 +10,11 @@
 
 class_name: WebGuy
 modules:
-   enabled: [Selenium2]
+   enabled: [WebDriver]
    config:
-      Selenium2:
+      WebDriver:
          url: 'http://magento-ee.alpha2.corp.ism-ukraine.com/'
          browser: firefox
+         wait: 0.5
          capabilities:
              unexpectedAlertBehaviour: 'accept'

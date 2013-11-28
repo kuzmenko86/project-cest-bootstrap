@@ -25,9 +25,9 @@ class DefaultCest
         $page = \ISM\PageFactory::getPage('home');
         $page->amOnPage('/electronics/computers/build-your-own/gaming-computer.html');
         $I->click('Customize and Add to Cart');
-        $I->wait(3000);
+        $I->wait(3);
         $I->selectOption("//input[@id='bundle-option*']","54");
-        $I->wait(3000);
+        $I->wait(3);
         //$page->checkBannerRotator();
 
 

@@ -42,7 +42,7 @@ class PdpPage extends BasePage
     public function addSimpleProductToShoppingCart(&$page)
     {
         $this->click($this->pageResource->pageElements->add_to_cart);
-        $this->wait(1000);
+        $this->wait(1);
         $page = $this->getPage('shopping_cart');
         return $page;
     }
@@ -53,9 +53,10 @@ class PdpPage extends BasePage
      */
     public function addProductToShoppingCart()
     {
-        $productTitle = (string)$this->grabTextFrom($this->pageResource->pageElements->product_title);
+        $productTitle = $this->grabTextFrom($this->pageResource->pageElements->product_title);
+
         $this->click($this->pageResource->pageElements->add_to_cart);
-        $this->wait(1000);
+        $this->wait(1);
         $page = $this->getPage('shopping_cart');
         $page->isCurrent();
         $page->see($productTitle);

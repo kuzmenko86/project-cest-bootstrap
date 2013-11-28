@@ -14,10 +14,16 @@
         <intitle>Checkout</intitle>
     </codeception>
     <pageElements>
-        <radio_guest>login:guest</radio_guest>
-        <ragio_register>login:register</ragio_register>
-        <radio_check_many_order>p_method_checkmo</radio_check_many_order>
-        <radio_use_for_shipping>billing:use_for_shipping_yes</radio_use_for_shipping>
+        <as_who>//ul[@class='form-list form-alt']</as_who>
+        <radio_as_guest>Checkout as Guest</radio_as_guest>
+        <ragio_as_register>Register</ragio_as_register>
+
+        <billing_form>#co-billing-form</billing_form>
+        <radio_use_for_shipping>#billing:use_for_shipping_yes</radio_use_for_shipping>
+
+        <pyment_method_form>#co-payment-form</pyment_method_form>
+        <radio_check_many_order>#p_method_checkmo</radio_check_many_order>
+
 
         <button_next_step>Continue</button_next_step>
         <button_next_on_billing>//div[@id='billing-buttons-container']/button</button_next_on_billing>
