@@ -10,7 +10,8 @@
         <see>
             <row>My account</row>
             <row>My wishlist</row>
-            <row>Log In or register</row>
+            <row>Log In</row>
+            <row>register</row>
         </see>
         <seeelement>
             <row>//div[@class='col2-set']</row>

@@ -23,6 +23,7 @@
     </catalog>
 
     <customers>
+        <customer_item>//ul[@id='nav']/li[5]</customer_item>
         <managecustomers>//ul[@id='nav']/li[5]/ul[1]/li[1]/a</managecustomers>
         <email_filter>//input[@id='customerGrid_filter_email']</email_filter>
         <first_option>//td[@class='a-center ']/input[@class='massaction-checkbox']</first_option>

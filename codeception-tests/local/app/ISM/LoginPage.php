@@ -40,6 +40,9 @@ class LoginPage extends BasePage
 
     }
 
+    /**
+     * @return $this
+     */
     public function checkForLoginFormPresent ()
     {
         //$this->canSee($this->pageResource->pageElements->login_button);

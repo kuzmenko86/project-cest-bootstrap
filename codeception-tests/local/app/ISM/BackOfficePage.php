@@ -20,6 +20,9 @@ class BackOfficePage extends BasePage
     protected $login = 'ISM';
     protected $password = 'abcABC123';
 
+    /**
+     * @return $this
+     */
     public function loginToBO()
     {
         $this->fillField(
@@ -32,22 +35,26 @@ class BackOfficePage extends BasePage
         );
 
         $this->click($this->pageResource->pageElements->login_to_bo_button);
+        return $this;
 
 
     }
 
     /**
+     * Lead to proper place in BO
      * Here will be a lot of cases
+     *
      * @param $item
      * @return $this
      */
-    public function goToBO ($item)
+    public function goToBOPage ($item)
     {
         switch($item)
         {
             case 'manage_customers' :
+                $this->moveMouseOver($this->pageResource->customers->customer_item);
                 $this->click($this->pageResource->customers->managecustomers);
-                $this->wait('3');
+                $this->wait('2');
                 break;
 
         }
@@ -55,10 +62,15 @@ class BackOfficePage extends BasePage
 
     }
 
+    /**
+     * Delete customer by BO
+     *
+     * @return $this
+     */
     public function deleteCustomer()
     {
 
-        $this->goToBO('manage_customers');
+        $this->goToBOPage('manage_customers');
         $this->fillField($this->pageResource->customers->email_filter, $this->baseResource->MyData->email_address);
         $this->click("//td[@class='filter-actions a-right']/button[2]");    //search button
         $this->dontSee('No records found.');

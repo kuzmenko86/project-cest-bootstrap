@@ -52,7 +52,7 @@ class BasePage extends AbstractPage
     }
 
     /**
-     * @return bool|BasePage|HomePage|LoginPage|PdpPage|RegistrationPage|ShoppingCartPage
+     * @return bool|LoginPage
      */
     public function goToLoginPage()
     {

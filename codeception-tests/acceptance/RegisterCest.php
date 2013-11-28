@@ -25,7 +25,8 @@ class RegisterCest {
             ->makeRegister();
 
         $pageMyAccount = \ISM\PageFactory::getPage('my_account');
-        if ((string)$I->grabFromCurrentUrl() == $page->baseResource->projectSettings->url . $pageMyAccount->pageResource->codeception->amonpage)    //compare url
+        $tempUrl = (string)$I->grabFromCurrentUrl();
+        if ((string)$I->grabFromCurrentUrl() ==  $pageMyAccount->pageResource->codeception->amonpage)    //compare url
         {
             $page = \ISM\PageFactory::getPage('my_account');
             $page->isCurrent();
