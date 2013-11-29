@@ -1,17 +1,31 @@
 <?php
+/**
+ * Shell startup file for build tools.
+ *
+ * Used ../bootstrap.php file for configuration.
+ */
 
     define ('DS', DIRECTORY_SEPARATOR);
     define ('ISM_NS', 'ISM');
 
-    $localAppISM = __DIR__. DS . 'app' . DS . ISM_NS;
+    $bootstrapFile = realpath(__DIR__ . DS . ".." . DS . "bootstrap.php");
+    require_once($bootstrapFile);
+    /**
+     * Load this parameters from $bootstrapFile.
+     * @var string $codeceptTestsDir
+     * @var string $testsArea
+     * @var string $guyFile
+     */
 
-    $source = __DIR__ . DS . ".." . DS . "acceptance" . DS . "WebGuy.php";
+    $localAppISM = __DIR__. DS . ".." . DS . 'app' . DS . ISM_NS;
+
+    $source = __DIR__ . DS . ".." . DS . ".." . DS . $codeceptTestsDir . DS . $testsArea . DS . $guyFile;
     $target = $localAppISM . DS . "AbstractPage.php";
 
     $source = realpath($source);
     $target = realpath($target);
 
-    echo "Reading" . $source . PHP_EOL;
+    echo "Open source file :" . PHP_EOL . $source . PHP_EOL;
 
     $newMethods = array();
     $handle = fopen($source, "r");
@@ -31,6 +45,8 @@
     }
 
     fclose($handle);
+
+    echo "Open target file :" . PHP_EOL . $target . PHP_EOL;
     $handleTarget = fopen($target, "r");
 
     if ($handleTarget) {
@@ -75,9 +91,12 @@
     $handleTarget = fopen($target, "w");
 
     if ($handleTarget) {
-       foreach($lines as $line) {
-           fputs($handleTarget, $line);
-       }
+        $countLines = 0;
+        foreach($lines as $line) {
+            fputs($handleTarget, $line);
+            $countLines++;
+        }
+        echo "Write to target {$countLines} lines" . PHP_EOL;
     }
 
     fclose($handleTarget);
