@@ -1,0 +1,3 @@
+[submodule "Codeception"]
+	path = Codeception
+	url = https://github.com/Codeception/Codeception.git
