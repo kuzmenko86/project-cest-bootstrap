@@ -1,10 +1,10 @@
-Using shell build tool
+Using shell tools
 ======================
 
 ## Build phpdoc hints tool
 
-To rebuild phpdoc hints run
+To update phpdoc hints run from project root folder
 
 ```
-php src\shell\build.php
+php src/shell/build.php
 ```
