@@ -17,15 +17,23 @@
      * @var string $guyFile
      */
 
-    $localAppISM = __DIR__. DS . ".." . DS . 'app' . DS . ISM_NS;
+    $localAppISM = __DIR__ . DS . ".." . DS . 'app' . DS . ISM_NS;
 
-    $source = __DIR__ . DS . ".." . DS . ".." . DS . $codeceptTestsDir . DS . $testsArea . DS . $guyFile;
-    $target = $localAppISM . DS . "AbstractPage.php";
+    $src = __DIR__ . DS . ".." . DS . ".." . DS . $codeceptTestsDir . DS . $testsArea . DS . $guyFile;
+    $trg = $localAppISM . DS . "AbstractPage.php";
 
-    $source = realpath($source);
-    $target = realpath($target);
+    $source = realpath($src);
+    if (empty($source)) {
+        echo "ERROR. Wrong source path => " . $src . PHP_EOL;
+        exit();
+    }
+    $target = realpath($trg);
+    if (empty($target)) {
+        echo "ERROR. Wrong target path => " . $trg . PHP_EOL;
+        exit();
+    }
 
-    echo "Open source file :" . PHP_EOL . $source . PHP_EOL;
+    echo "Source file : " . '['. $source . ']' .PHP_EOL;
 
     $newMethods = array();
     $handle = fopen($source, "r");
@@ -43,10 +51,10 @@
         echo "Error in open file " . $source;
         die();
     }
-
     fclose($handle);
 
-    echo "Open target file :" . PHP_EOL . $target . PHP_EOL;
+    echo "Target file : " . '['. $target . ']' .PHP_EOL;
+
     $handleTarget = fopen($target, "r");
 
     if ($handleTarget) {
