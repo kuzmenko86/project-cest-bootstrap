@@ -8,7 +8,7 @@
     define ('DS', DIRECTORY_SEPARATOR);
     define ('ISM_NS', 'ISM');
 
-    $bootstrapFile = realpath(__DIR__ . DS . ".." . DS . "bootstrap.php");
+    $bootstrapFile = realpath(__DIR__ . DS . "bootstrap.php");
     require_once($bootstrapFile);
     /**
      * Load this parameters from $bootstrapFile.
