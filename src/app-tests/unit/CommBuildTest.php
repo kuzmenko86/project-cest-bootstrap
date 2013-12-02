@@ -27,22 +27,21 @@ class CommBuildToolTest extends \Codeception\TestCase\Test
         $c = new \ISM\Tool\CommBuildTool;
         $src = realpath($this->_srcPath);
         // check does file exist
-        $this->assertTrue( !  empty($src),  'Src file not found => ' . $this->_srcPath);
+        $this->assertTrue(! empty($src),  'Src file not found => ' . $this->_srcPath);
         $c->setSource($src);
         $result = $c->openSrcFile();
-        $this->assertTrue($result, 'CommBuildTool open src file failed');
+        $this->assertTrue($result, 'CommBuildTool open src file failed => ' . $src);
 
         $trg = realpath($this->_trgPath);
         // check does file exist
-        $this->assertTrue( ! empty($trg),  'Trg file not found => ' . $this->_trgPath);
+        $this->assertTrue(! empty($trg), 'Trg file not found => ' . $this->_trgPath);
 
         $c->setTarget($trg);
         $result = $c->openTrgFile();
-
-        $this->assertTrue($result, 'CommBuildTool open trg file failed');
+        $this->assertTrue($result, 'CommBuildTool open trg file failed => ' . $trg);
 
         $result = $c->execute();
-        $this->assertTrue($result, 'CommBuildTool failed');
+        $this->assertTrue($result, 'CommBuildTool method execution() failed');
     }
 
     public function testExecutionWithSetSourceResult()
@@ -50,12 +49,12 @@ class CommBuildToolTest extends \Codeception\TestCase\Test
         $c = new \ISM\Tool\CommBuildTool;
         $src = realpath($this->_srcPath);
         // check does file exist
-        $this->assertTrue( !  empty($src),  'File not found =>' . $this->_srcPath);
+        $this->assertTrue(! empty($src), 'Src file not found => ' . $this->_srcPath);
         $c->setSource($src);
 
         $trg = realpath($this->_trgPath);
         // check does file exist
-        $this->assertTrue( ! empty($trg),  'Trg file not found => ' . $this->_trgPath);
+        $this->assertTrue(! empty($trg), 'Trg file not found => ' . $this->_trgPath);
         $c->setTarget($trg);
 
         $result = $c->execute();
