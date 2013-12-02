@@ -17,9 +17,11 @@ class CommBuildToolTest extends \Codeception\TestCase\Test
     }
 
     // tests
-    public function testMe()
+    public function testExecutionResult()
     {
         $c = new \ISM\Tool\CommBuildTool;
+        $result = $c->execute();
+        $this->assertTrue($result, 'CommBuildTool failed');
     }
 
 }

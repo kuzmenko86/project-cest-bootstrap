@@ -17,10 +17,13 @@ class CommCompositionToolsTest extends \Codeception\TestCase\Test
     }
 
     // tests
-    public function testArrayBehavoir()
+    public function testAddCommandToComposition()
     {
         $composition = new \ISM\Tool\CommCompositionTool();
-        ;
+        $newCom = new \ISM\Tool\CommBuildTool();
+        $composition[] = $newCom;
+        $saveCom = $composition[0];
+        $this->assertTrue($saveCom instanceof \ISM\Intface\CommandIntface, 'Command have not command interface');
     }
 
 }
