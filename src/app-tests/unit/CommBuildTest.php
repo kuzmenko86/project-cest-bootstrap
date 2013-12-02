@@ -1,7 +1,7 @@
 <?php
 use Codeception\Util\Stub;
 
-class CommCompositionToolsTest extends \Codeception\TestCase\Test
+class CommBuildToolTest extends \Codeception\TestCase\Test
 {
    /**
     * @var \CodeGuy
@@ -17,10 +17,9 @@ class CommCompositionToolsTest extends \Codeception\TestCase\Test
     }
 
     // tests
-    public function testArrayBehavoir()
+    public function testMe()
     {
-        $composition = new \ISM\Tool\CommCompositionTool();
-        ;
+        $c = new \ISM\Tool\CommBuildTool;
     }
 
 }

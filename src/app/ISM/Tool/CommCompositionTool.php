@@ -2,9 +2,9 @@
 /**
  * Composition of Commands.
  */
-namespace ISM\Tools;
+namespace ISM\Tool;
 
-class CommCompositionTools implements \ArrayAccess
+class CommCompositionTool implements \ArrayAccess
 {
     protected $_data = array();
 
