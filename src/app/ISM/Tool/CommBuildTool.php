@@ -16,6 +16,16 @@ class CommBuildTool implements CommandIntface
 
     const SOURCE_SEARCH_REGEXP = '~public function (.*) {~';
 
+    const MSG_LEVEL_INFO = 'info';
+    const MSG_LEVEL_DEBUG = 'debug';
+    const MSG_LEVEL_ERROR = 'error';
+
+    protected $_msgPrefix = array(
+        self::MSG_LEVEL_INFO => 'INFO.',
+        self::MSG_LEVEL_DEBUG => 'DEBUG.',
+        self::MSG_LEVEL_ERROR => 'ERROR.',
+    );
+
     public function execute()
     {
         $result = true;
@@ -40,12 +50,22 @@ class CommBuildTool implements CommandIntface
 
     public function setSource($src)
     {
-        $this->_src = $src;
+        $this->_src = realpath($src);
+        if (empty($this->_src)) {
+            $this->logMsg("Wrong target path => {$src}", self::MSG_LEVEL_ERROR);
+            return false;
+        }
+        return true;
     }
 
     public function setTarget($trg)
     {
-        $this->_trg = $trg;
+        $this->_trg = realpath($trg);
+        if (empty($this->_trg)) {
+            $this->logMsg("Wrong target path => {$trg}", self::MSG_LEVEL_ERROR);
+            return false;
+        }
+        return true;
     }
 
     public function getGeneratedMethods()
@@ -63,6 +83,10 @@ class CommBuildTool implements CommandIntface
         if ($this->_srcHandle) {
             return true;
         }
+        if (empty($this->_src)) {
+            return false;
+        }
+        $this->logMsg("Source file : [{$this->_src}]");
         $handle = @fopen($this->_src, "r");
         if ($handle) {
             $this->_srcHandle = $handle;
@@ -78,6 +102,10 @@ class CommBuildTool implements CommandIntface
         if ($this->_trgHandle) {
             return true;
         }
+        if (empty($this->_trg)) {
+            return false;
+        }
+        $this->logMsg("Target file with mode {$mode} : [{$this->_trg}] ");
         $handle = @fopen($this->_trg, $mode);
         if ($handle) {
             $this->_trgHandle = $handle;
@@ -107,7 +135,7 @@ class CommBuildTool implements CommandIntface
                 unset($matches);
             }
         } else {
-            echo "ERROR. Can not open file " . $this->_src;
+            $this->logMsg("Can not open file {$this->_src}", self::MSG_LEVEL_ERROR);
             return false;
         }
 
@@ -158,7 +186,7 @@ class CommBuildTool implements CommandIntface
                 unset($matches);
             }
         } else {
-            echo "ERROR. Cannot open file " . $this->_trg;
+            $this->logMsg("Can not open file {$this->_trg}", self::MSG_LEVEL_ERROR);
             return false;
         }
 
@@ -183,10 +211,25 @@ class CommBuildTool implements CommandIntface
                 fputs($this->_trgHandle, $line);
                 $countLines++;
             }
-            echo "INFO. Write to target files {$countLines} lines" . PHP_EOL;
+            $this->logMsg("{$countLines} lines were written into target file.", self::MSG_LEVEL_INFO);
         }
 
         fclose($this->_trgHandle);
         return true;
+    }
+
+    public function logMsg($msg, $modeLevel = '')
+    {
+        $msgPrefix = '';
+        if (! empty($modeLevel)) {
+            $msgPrefix = $this->getLevelPrefixMsg($modeLevel) . ' ';
+        }
+
+        echo $msgPrefix . $msg . PHP_EOL;
+    }
+
+    public function getLevelPrefixMsg($mode)
+    {
+        return (isset($this->_msgPrefix[$mode]) ? $this->_msgPrefix[$mode] : '');
     }
 }
