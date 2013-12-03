@@ -18,7 +18,7 @@ $configYaml = array();
 // required yaml
 // see http://www.php.net/manual/en/function.yaml-parse.php
 if (function_exists('yaml_parse')) {
-    $configYamlFile = __DIR__ . DS . '..' . DS . 'codeception.yml';
+    $configYamlFile = __DIR__ . DS . '..' . DS . '..' . DS . 'codeception.yml';
     $yamlContent = file_get_contents($configYamlFile);
     $configYaml = yaml_parse($yamlContent);
 } else {
