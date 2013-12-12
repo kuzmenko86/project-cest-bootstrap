@@ -16,9 +16,9 @@ class LoginPage extends BasePage
     }
 
     /**
-     * @param $page
-     * @return AbstractPage|BackOfficePage|CheckoutPage|HomePage|LoginPage|MyAccountPage|PdpPage|RegistrationPage|ShoppingCartPage
+     * @return AbstractPage|BackOfficePage|CheckoutPage|HomePage|LoginPage|MyAccountPage|PdpPage|RegistrationPage|ShoppingCartPage|ThankYouPage
      */
+
     public function login()
     {
         $this->fillField(

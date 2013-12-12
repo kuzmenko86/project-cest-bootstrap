@@ -17,6 +17,7 @@ class RegisterCest {
         $I->wantTo('Create new user on website');
         $page = \ISM\PageFactory::getPage('home');
         $page->amOnPage();
+        $I->wait(10);
         $page->goRegistrationPage() // $page no is variable RegistrationPage class
             ->isCurrent()
             ->checkForAllFormElementsPresent()

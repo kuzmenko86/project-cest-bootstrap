@@ -19,7 +19,7 @@ class DefaultCest
 
 
 
-    public function tryToSpendCheckout(WebGuy $I){
+    protected function tryToSpendCheckout(WebGuy $I){
         \ISM\PageFactory::setGuy($I);
         $I->wantTo('test home page');
         $page = \ISM\PageFactory::getPage('home');

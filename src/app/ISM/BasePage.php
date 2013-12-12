@@ -85,7 +85,7 @@ class BasePage extends AbstractPage
     public function unlogin ()
     {
         $this->click($this->baseResource->pageElements->unlogin);
-        $this->wait(5);
+        $this->wait(6);
         $page = $this->getPage('home');
         $page->isCurrent();
         return $page;
