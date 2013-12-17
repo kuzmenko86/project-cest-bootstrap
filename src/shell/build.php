@@ -5,7 +5,7 @@
  * Used ./bootstrap.php file for configuration.
  */
 
-    use \ISM\Tool\CommBuildTool;
+    use \ISM\Factory\CmdToolFactory;
     define ('DS', DIRECTORY_SEPARATOR);
     define ('ISM_NS', 'ISM');
 
@@ -26,7 +26,7 @@
     $src = __DIR__ . DS . ".." . DS . ".." . DS . $codeceptTestsDir . DS . $testsArea . DS . $guyFile;
     $trg = $localAppISM . DS . "AbstractPage.php";
 
-    $c = new CommBuildTool();
+    $c = CmdToolFactory::getCommand('CommBuild');
     if (! $c->setSource($src)) {
         exit();
     }
