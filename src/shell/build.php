@@ -5,7 +5,7 @@
  * Used ./bootstrap.php file for configuration.
  */
 
-    use \ISM\Factory\CmdToolFactory;
+    use \ISM\Tool\CommCompositionTool;
     define ('DS', DIRECTORY_SEPARATOR);
     define ('ISM_NS', 'ISM');
 
@@ -26,12 +26,14 @@
     $src = __DIR__ . DS . ".." . DS . ".." . DS . $codeceptTestsDir . DS . $testsArea . DS . $guyFile;
     $trg = $localAppISM . DS . "AbstractPage.php";
 
-    $c = CmdToolFactory::getCommand('CommBuild');
-    if (! $c->setSource($src)) {
+    $c = new CommCompositionTool();
+    $c[] = 'CommBuild';
+
+    if (! $c[0]->setSource($src)) {
         exit();
     }
-    if (! $c->setTarget($trg)) {
+    if (! $c[0]->setTarget($trg)) {
         exit();
     }
-    $c->execute();
+    $c[0]->execute();
     exit();
