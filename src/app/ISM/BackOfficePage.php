@@ -74,6 +74,7 @@ class BackOfficePage extends BasePage
         $this->fillField($this->pageResource->customers->email_filter, $this->baseResource->MyData->email_address);
         $this->click("//td[@class='filter-actions a-right']/button[2]");    //search button
         $this->dontSee('No records found.');
+        $this->wait(2);
         $this->checkOption($this->pageResource->customers->first_option);   //select one available item (emai)
         $this->click("//option[@value='delete']");  //check option delete
         $this->click($this->pageResource->customers->button_submit);    //click submit button

@@ -17,22 +17,20 @@ class RegisterCest {
         $I->wantTo('Create new user on website');
         $page = \ISM\PageFactory::getPage('home');
         $page->amOnPage();
-        $I->wait(10);
         $page->goRegistrationPage() // $page no is variable RegistrationPage class
-            ->isCurrent()
             ->checkForAllFormElementsPresent()
             ->checkValidationMessage()
             ->checkInvalidEmail()
             ->makeRegister();
 
         $pageMyAccount = \ISM\PageFactory::getPage('my_account');
-        $tempUrl = (string)$I->grabFromCurrentUrl();
         if ((string)$I->grabFromCurrentUrl() ==  $pageMyAccount->pageResource->codeception->amonpage)    //compare url
         {
             $page = \ISM\PageFactory::getPage('my_account');
             $page->isCurrent();
         } else {
             //grab error text
+            $page->see($page->pageResource->pageElements->error_for_already_existing_account);
             $page = \ISM\PageFactory::getPage('back_office');
             $page->amOnPage();
             $page->loginToBO();
@@ -40,6 +38,8 @@ class RegisterCest {
             $page = \ISM\PageFactory::getPage('registration');
             $page->amOnPage();
             $page->makeRegister();
+            $page = \ISM\PageFactory::getPage('my_account');
+            $page->isCurrent();
 
         }
 

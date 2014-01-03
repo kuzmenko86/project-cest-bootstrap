@@ -11,7 +11,7 @@
             <row>My account</row>
             <row>My Dashboard</row>
         </see>
-        <intitle>My Account</intitle>
+        <seeintitle>My Account</seeintitle>
     </codeception>
 
     <pageElements>

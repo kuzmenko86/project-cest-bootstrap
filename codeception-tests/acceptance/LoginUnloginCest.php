@@ -18,7 +18,6 @@ class LoginUnloginCest
         \ISM\PageFactory::setGuy($I);
 
         $I->wantToTest('login on website');
-        $I->wait(10);
         $page = \ISM\PageFactory::getPage('home');
         $page->amOnPage();
         $page->isCurrent();

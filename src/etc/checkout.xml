@@ -11,7 +11,7 @@
             <row>Checkout,h1</row>
             <row>Your Checkout Progress</row>
         </see>
-        <intitle>Checkout</intitle>
+        <seeintitle>Checkout</seeintitle>
     </codeception>
     <pageElements>
         <as_who>//ul[@class='form-list form-alt']</as_who>

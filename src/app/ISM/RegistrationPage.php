@@ -48,6 +48,7 @@ class RegistrationPage extends BasePage
     }
 
 
+
     public function makeRegister()
     {
         $this->fillField(
@@ -72,7 +73,7 @@ class RegistrationPage extends BasePage
         );
         $this->click($this->pageResource->registrationForm->submit_button);
         $this->wait(1);
-        //return $this; //should be return my account
+        return $this; //should be return my account
 
     }
 

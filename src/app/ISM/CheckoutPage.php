@@ -15,8 +15,11 @@ class CheckoutPage extends BasePage
         $this->_pageResource = $this->loadConfig($this->_xmlName);
     }
 
+    var $likeWho;
+
     public function spendCheckoutMethod($likeWho)
     {
+        $this->likeWho = $likeWho;
         if ($likeWho == "Login"){
             $this->fillField($this->pageResource->addressFormFields->login_eamil, $this->baseResource->MyData->email_address);
             $this->fillField($this->pageResource->addressFormFields->login_password, $this->baseResource->MyData->password);
@@ -39,9 +42,9 @@ class CheckoutPage extends BasePage
 
     }
 
-    public function spendStepBilling($Im)
+    public function spendStepBilling()
     {
-        if ($Im != "Login"){
+        if ($this->$likeWho != "Login"){
             $this->click($this->pageResource->pageElements->button_next_on_billing);//continue button on checkout
             $this->see($this->pageResource->pageElements->alert_require_field);
             $this->fillField($this->pageResource->addressFormFields->firstname,$this->baseResource->MyData->firstname);
@@ -52,7 +55,7 @@ class CheckoutPage extends BasePage
             $this->fillField($this->pageResource->addressFormFields->postcode,$this->baseResource->MyData->postcode);
             $this->fillField($this->pageResource->addressFormFields->telephone,$this->baseResource->MyData->telephone);
 
-            if ($Im == "Register"){
+            if ($this->$likeWho  == "Register"){
                 $this->fillField($this->pageResource->addressFormFields->pasword,$this->baseResource->MyData->password);
                 $this->fillField($this->pageResource->addressFormFields->confirmation,$this->baseResource->MyData->confirmation);
             }

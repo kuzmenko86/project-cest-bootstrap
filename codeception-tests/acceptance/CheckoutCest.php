@@ -10,7 +10,7 @@ class CheckoutCest {
     {
     }
 
-    protected function tryToSpendCheckout(\WebGuy $I)
+    public  function tryToSpendCheckout(\WebGuy $I)
     {
         \ISM\PageFactory::setGuy($I);
         $page = \ISM\PageFactory::getPage('pdp');
